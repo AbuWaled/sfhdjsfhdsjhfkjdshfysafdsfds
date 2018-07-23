@@ -277,37 +277,81 @@ client.on('message', message => {
 });
 
 
-  client.on("message", message => {
-    var prefix = "+";
+client.on("message", message => {
+  var prefix = "+";
+
+          var args = message.content.substring(prefix.length).split(" ");
+          if (message.content.startsWith(prefix + "clear")) {
+ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **ليس لديك صلاحيات**');
+      var msg;
+      msg = parseInt();
+    
+    message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+    message.channel.sendMessage("", {embed: {
+      title: "Done | تــم",
+      color: 0x06DF00,
+      description: "تم مسح الرسايل بنجاح :white_check_mark: ",
+      footer: {
+        text: "DgPro"
+      }
+    }}).then(msg => {msg.delete(3000)});
+                        }
+
+   
+});
+
+
+
+
+
  
-            var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith(prefix + "clear")) {
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('? | **لا يوجد لديك صلاحية لمسح الشات**');
-        var msg;
-        msg = parseInt();
-      
-      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
-      message.channel.sendMessage("", {embed: {
-        title: "Done | تــم مسح الشات",
-        color: 0x06DF00,
-        description: "تم مسح الرسائل ",
-        footer: {
-          text: "©DgPro"
-        }
-      }}).then(msg => {msg.delete(3000)});
-                          }
-}); 
-
-
-
-
-
-
  
- 
+client.on('message', message => {
+    if (message.content.startsWith("+avatar")) {
+        var mentionned = message.mentions.users.first();
+    var x5bzm;
+      if(mentionned){
+          var x5bzm = mentionned;
+      } else {
+          var x5bzm = message.author;
+          
+      }
+        const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setImage(`${x5bzm.avatarURL}`)
+      message.channel.sendEmbed(embed);
+    }
+});
 
 
-
+   const sql = require("sqlite");
+client.on("message", async message => {
+    if (message.content.startsWith(prefix + "انجاز")) {
+         var ids = [
+            "20",
+            "1",
+            "13",
+            "18",
+            "17",
+            "9",
+            "31",
+            "22",
+            "23",
+            "2",
+            "11",
+            "19",
+            "24",
+            "25",
+            "12",
+            "33"
+            ]
+            const randomizer = Math.floor(Math.random()*ids.length);
+            const args = message.content.split(" ").slice(1).join(" ")
+    if (!args) return message.channel.send("**اكتب وش تبي يكون بلانجاز**");
+    const image = new Discord.Attachment(`https://www.minecraftskinstealer.com/achievement/a.php?i=${ids[randomizer]}&h=Achievement Get!&t=${args}`, "achievement.png");
+message.channel.send(image)
+	}
+});
 
 
 
@@ -506,7 +550,20 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('لي�
 
 
 
+   client.on("message", message => {    
+    if(!message.channel.guild) return;
+if(message.author.bot) return;
+if(message.content === "+ser-av"){ 
+    const embed = new Discord.RichEmbed()
 
+.setTitle(`صورة ** ${message.guild.name} **`)
+.setAuthor(message.author.username, message.guild.iconrURL)
+.setColor('RANDOM')
+.setImage(message.guild.iconURL)
+
+message.channel.send({embed});
+}
+});
 
 
 
@@ -552,7 +609,43 @@ client.on('message', message => {
 
 
 
+   client.on('message', message => {
+  if (message.author.x5bz) return;
+  if (!message.content.startsWith(prefix)) return;
 
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "ban") {
+               if(!message.channel.guild) return message.reply('** This command only for servers**');
+         
+  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
+  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
+  let user = message.mentions.users.first();
+  let reason = message.content.split(" ").slice(2).join(" ");
+  /*let b5bzlog = client.channels.find("name", "5bz-log");
+  if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");*/
+  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
+  if(!reason) return message.reply ("**اكتب سبب الطرد**");
+  if (!message.guild.member(user)
+  .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالي**");
+
+  message.guild.member(user).ban(7, user);
+
+  const banembed = new Discord.RichEmbed()
+  .setAuthor(`BANNED!`, user.displayAvatarURL)
+  .setColor("RANDOM")
+  .setTimestamp()
+  .addField("**المستخدم**",  '**[ ' + `${user.tag}` + ' ]**')
+  .addField("**من قبل**", '**[ ' + `${message.author.tag}` + ' ]**')
+  .addField("**السبب**", '**[ ' + `${reason}` + ' ]**')
+  message.channel.send({
+    embed : banembed
+  })
+}
+});
 
 
 
@@ -753,6 +846,64 @@ message.channel.send({embed});
 });  //
 
 
+client.on('message' , async (message) => {
+       if(message.content.startsWith(`<@${client.user.id}>`)) {
+              
+ let responses = [
+        'احد ناداني؟',
+        'سوي +help',
+        'لا تزعجني',
+        'ايش تبي ',
+        'هلا',
+        'كيفك',
+        'سم؟',
+        'تمنشن بوت ياغبي؟'
+    ]
+    
+    let fetched = responses[Math.floor(Math.random() * responses.length)];
+   message.reply(fetched)
+       }
+  
+});
+
+
+
+client.on('message',  (message) => {
+        if(message.content.startsWith('+كف')) {
+  let user = message.mentions.users.first();
+  if (!user) {
+    /**
+     * The command was ran with invalid parameters.
+     * @fires commandUsage
+     */
+    return message.emit('commandUsage', message, this.help);
+  }
+
+  let punches = [
+    'https://i.giphy.com/media/iWEIxgPiAq58c/giphy.gif',
+    'https://i.giphy.com/media/DViGV8rfVjw6Q/giphy.gif',
+    'https://i.giphy.com/media/GoN89WuFFqb2U/giphy.gif',
+    'https://i.giphy.com/media/xT0BKiwgIPGShJNi0g/giphy.gif',
+    'https://i.giphy.com/media/Lx8lyPHGfdNjq/giphy.gif'
+  ];
+
+  message.channel.send({
+    embed: {
+      description: `${message.author.username} عطاك كف  ${user.username}! 👊`,
+      image: {
+        url: punches[Math.floor(Math.random() * punches.length)]
+      }
+    }
+  }).catch(e => {
+    client.log.error(e);
+  })
+        }  
+});
+
+
+
+
+
 
 
 
@@ -871,6 +1022,19 @@ client.on('message', message => {
 	
 	
 
+  client.on('message', message => {
+    if (message.content.startsWith(prefix + "خواطر")) {
+                 if(!message.channel.guild) return message.reply('**هذا الامر فقط للسيرفرات**');
+   var embed = new Discord.RichEmbed()
+   .setColor('RANDOM')
+ 
+    .setThumbnail(message.author.avatarURL) 
+  .addField('DgPro|خواطر' ,
+   `${secreT[Math.floor(Math.random() * secreT.length)]}`)
+   message.channel.sendEmbed(embed);
+   console.log('[id] Send By: ' + message.author.username)
+     }
+ });
 
 
 
@@ -980,7 +1144,6 @@ client.on("message", message => {
         ***__:earth_africa: اوامر عامه:earth_africa: __***
 **
 『+id / معلومات عن حسابك:bust_in_silhouette:』
-『+roles / يعرض لك الرتب و عددها』
 『+rooms / يعرض لك الرومات وعددها』
 『+server / معلومات عن السيرفر:bar_chart:』
 『+ser-av / يعرض صوره السيرفر :camera:』
@@ -1008,9 +1171,13 @@ client.on("message", message => {
       .setDescription(`
         **__:video_game:الالعاب:video_game:__**
  **       
-『+لعبة هكر/ هكر:video_game:』
-『+لعبة زواج/ زواج:video_game:』
-『+يعطيك عقاب و لازم تنفذه / عقاب:video_game:』
+『:video_game:+انجاز:video_game:』
+『:video_game:+هكر:video_game:』
+『:video_game:+زواج:video_game:』
+『:video_game:+كف:video_game:』
+『:video_game:
+『:video_game:
+『:video_game:
 **
    
         
