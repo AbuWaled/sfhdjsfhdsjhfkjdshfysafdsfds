@@ -830,20 +830,7 @@ client.on('message', message => {
 
   
 
-client.on("message", message => {    
-    if(!message.channel.guild) return;
-if(message.author.bot) return;
-if(message.content === "+ser-av"){ 
-    const embed = new Discord.RichEmbed()
 
-.setTitle(`صورة ** ${message.guild.name} **`)
-.setAuthor(message.author.username, message.guild.iconrURL)
-.setColor('RANDOM')
-.setImage(message.guild.iconURL)
-
-message.channel.send({embed});
-}
-});  //
 
 
 client.on('message' , async (message) => {
@@ -991,19 +978,6 @@ client.on('message', message => {
 	
 	
 
-  client.on('message', message => {
-    if (message.content.startsWith(prefix + "خواطر")) {
-                 if(!message.channel.guild) return message.reply('**هذا الامر فقط للسيرفرات**');
-   var embed = new Discord.RichEmbed()
-   .setColor('RANDOM')
- 
-    .setThumbnail(message.author.avatarURL) 
-  .addField('DgPro|خواطر' ,
-   `${secreT[Math.floor(Math.random() * secreT.length)]}`)
-   message.channel.sendEmbed(embed);
-   console.log('[id] Send By: ' + message.author.username)
-     }
- });
 
 
 
