@@ -21,9 +21,6 @@ client.on('ready', () => {
 
 
 client.on('message', message => {
-if (!points[message.author.id]) points[message.author.id] = {
-    points: 50,
-  };
 if (message.content.startsWith(prefix + 'ماين كرافت')) { 
     if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
 
@@ -58,9 +55,6 @@ message.channel.send('**لديك 15 ثانيه**').then(msg => {
 
 
 client.on('message', message => {
-if (!points[message.author.id]) points[message.author.id] = {
-    points: 50,
-  };
 if (message.content.startsWith(prefix + 'فكك')) { 
     if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
 
