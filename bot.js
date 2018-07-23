@@ -868,30 +868,6 @@ client.on('message' , async (message) => {
 
 
 
-client.on('message',  (message) => {
-        if(message.content.startsWith('+كف')) {
-  let user = message.mentions.users.first();
-  if (!user) {
-  let punches = [
-    'https://i.giphy.com/media/iWEIxgPiAq58c/giphy.gif',
-    'https://i.giphy.com/media/DViGV8rfVjw6Q/giphy.gif',
-    'https://i.giphy.com/media/GoN89WuFFqb2U/giphy.gif',
-    'https://i.giphy.com/media/xT0BKiwgIPGShJNi0g/giphy.gif',
-    'https://i.giphy.com/media/Lx8lyPHGfdNjq/giphy.gif'
-  ];
-
-  message.channel.send({
-    embed: {
-      description: `${message.author.username} عطاك كف  ${user.username}! 👊`,
-      image: {
-        url: punches[Math.floor(Math.random() * punches.length)]
-      }
-    }
-  }).catch(e => {
-    client.log.error(e);
-  })
-        }  
-});
 
 
 
@@ -1167,10 +1143,6 @@ client.on("message", message => {
 『:video_game:+انجاز:video_game:』
 『:video_game:+هكر:video_game:』
 『:video_game:+زواج:video_game:』
-『:video_game:+كف:video_game:』
-『:video_game:
-『:video_game:
-『:video_game:
 **
    
         
