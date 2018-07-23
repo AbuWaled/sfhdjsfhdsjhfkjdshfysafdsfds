@@ -872,13 +872,6 @@ client.on('message',  (message) => {
         if(message.content.startsWith('+كف')) {
   let user = message.mentions.users.first();
   if (!user) {
-    /**
-     * The command was ran with invalid parameters.
-     * @fires commandUsage
-     */
-    return message.emit('commandUsage', message, this.help);
-  }
-
   let punches = [
     'https://i.giphy.com/media/iWEIxgPiAq58c/giphy.gif',
     'https://i.giphy.com/media/DViGV8rfVjw6Q/giphy.gif',
