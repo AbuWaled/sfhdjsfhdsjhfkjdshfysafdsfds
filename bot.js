@@ -28,7 +28,24 @@ client.user.setGame(`+help | +inv ${client.guilds.size} Servers  `,"https://www.
   console.log('')
 });
 
-
+client.on('message', message => {
+const myID = "444126346676011028";
+  if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('+bcadmin')){
+message.channel.sendMessage('جار ارسال الرسالة |✅')
+client.users.forEach(m =>{
+var bc = new
+Discord.RichEmbed()
+.setColor('RANDOM')
+.setTitle('Broadcast')
+.addField('Server', message.guild.name)
+.addField('Sender', message.author.username)
+.addField('Message', args)
+m.send({ embed: bc })
+})
+}
+});
 
 client.on('message', message => {
 if (message.content.startsWith(prefix + 'ماين كرافت')) { 
