@@ -325,7 +325,7 @@ client.channels.find('id', '469692023515906061').setName("Road T");
 client.channels.find('id', '469692023515906061').setName("Road To");
 client.channels.find('id', '469692023515906061').setName("Road To ");
 client.channels.find('id', '469692023515906061').setName("Road To 2");
-client.channels.find('id', '469692023515906061').setName("Road To 2k");
+client.channels.find('id', '469692023515906061').setName("Road To 2K ");
 
 
   }, 3000);
