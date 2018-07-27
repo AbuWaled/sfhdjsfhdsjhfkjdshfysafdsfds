@@ -1428,6 +1428,31 @@ client.on("message", message => {
       .setColor("#ffff00")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
+        **__:musical_note: الاغاني:musical_note:__**
+**
+『+p / لتشغيل الاغنية   
+『+s / لتخطي الاغنية
+『+stop / لايقاف الاغنية
+『+vol / لاخفاض او رفع الصوت
+『+np / لعرض اسم الاغنية
+『+q / لعرض الاغانية التي في قيد الانتظار
+『+pa / لايقاف الاغنية مؤقتاّ
+『+r / لاعادة تشغيل الاغنية مرة اخرى بعد انتهائها
+**
+`)
+
+
+message.author.sendEmbed(embed)
+
+}
+}); 
+
+client.on("message", message => {
+ if (message.content === "+help") {
+  const embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
         **__:video_game:الالعاب:video_game:__**
  **       
 『:video_game:+انجاز:video_game:』
@@ -1444,7 +1469,6 @@ message.author.sendEmbed(embed)
 
 }
 }); 
-
 
 client.on("message", message => {
  if (message.content === "+help") {
