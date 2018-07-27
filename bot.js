@@ -559,7 +559,7 @@ if(message.content === adminprefix + "restart") {
 
 
 client.on('message', message => {
-    if (message.content === "+`server") {
+    if (message.content === "+server") {
         if (!message.channel.guild) return
         var verificationLevel = message.guild.verificationLevel;
         const verificationLevels = ['None','Low','Meduim','High','Extreme'];
