@@ -328,6 +328,20 @@ client.channels.find('id', '469692023515906061').setName("Road To 2");
 client.channels.find('id', '469692023515906061').setName("Road To 2K ");
 
 
+client.on("ready", async  => {
+setInterval(function(){
+client.channels.find('id', '469245935004942356').setName("r");
+client.channels.find('id', '469245935004942356').setName("ro");
+client.channels.find('id', '469245935004942356').setName("roa");
+client.channels.find('id', '469245935004942356').setName("road");
+client.channels.find('id', '469245935004942356').setName("road-");
+client.channels.find('id', '469245935004942356').setName("road-T");
+client.channels.find('id', '469245935004942356').setName("road-To");
+client.channels.find('id', '469245935004942356').setName("road-To-");
+client.channels.find('id', '469245935004942356').setName("road-To-1");
+client.channels.find('id', '469245935004942356').setName("road-To-1K ");
+
+
   }, 3000);
 });
 
