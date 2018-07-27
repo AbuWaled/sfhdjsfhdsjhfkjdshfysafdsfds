@@ -1265,6 +1265,7 @@ client.on("message", message => {
 『+inv / اضافه البوت:sparkles:』
 『+member / عدد الاعضاء :busts_in_silhouette:』
 『+bot / لكي ترا البوت في كم سيرفر + كم عضو + روم:robot:』
+『+contact/ لارسال رسالة لصاحب البوت』
 **
 `)
 
@@ -1285,6 +1286,7 @@ client.on("message", message => {
 『:video_game:+انجاز:video_game:』
 『:video_game:+هكر:video_game:』
 『:video_game:+زواج:video_game:』
+『:video_game:+فكك:video_game:』
 **
    
         
