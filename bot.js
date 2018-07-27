@@ -47,6 +47,21 @@ m.send({ embed: bc })
 }
 });
 
+client.on('guildCreate', guild => {
+  var embed = new Discord.RichEmbed()
+  .setColor(0x5500ff)
+  .setDescription(`**شكرا جزيل الشكر لاضافة البوت**`)
+      guild.owner.send(embed)
+});
+
+client.on('voiceStateUpdate', (old, now) => {
+  const channel = client.channels.get('472361645910392833');
+  const currentSize = channel.guild.members.filter(m => m.voiceChannel).size;
+  const size = channel.name.match(/\[\s(\d+)\s\]/);
+  if (!size) return channel.setName(`Voice Online: ${currentSize}`);
+  if (currentSize !== size) channel.setName(`Voice Online: ${currentSize}`);
+});
+
 client.on('message', message => {
 if (message.content.startsWith(prefix + 'ماين كرافت')) { 
     if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
