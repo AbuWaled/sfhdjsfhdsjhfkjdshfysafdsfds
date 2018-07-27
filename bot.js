@@ -677,7 +677,7 @@ message.channel.send(image)
             if(!message.channel.guild) return;
         let embed = new Discord.RichEmbed()
         .setAuthor(` ${message.author.username} `, message.author.avatarURL)      
-        .setTitle(`:small_orange_diamond:اضغط هنا `)
+        .setTitle(`:small_orange_diamond:Click Here `)
         .setURL(`https://discordapp.com/oauth2/authorize/?permissions=268443710&scope=bot&client_id=460106813711319050`)
         .setThumbnail("https://images-ext-2.discordapp.net/external/dgcnt05ZbaN52KTCKjEYt5MtV7JqJz2Yxn8GCPFeOjw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/410835593451405312/c7735abad2cab67cf68bd854685914ca.png?width=80&height=80")
         .addField(':small_blue_diamond:By', "<@" + message.author.id + ">")        
@@ -695,7 +695,7 @@ message.channel.send(image)
             if(!message.channel.guild) return;
         let embed = new Discord.RichEmbed()
         .setAuthor(` ${message.author.username} `, message.author.avatarURL)      
-        .setTitle(`:small_orange_diamond:اضغط هنا `)
+        .setTitle(`:small_orange_diamond:Click Here `)
         .setURL(`https://discord.gg/4kgMsfk`)
         .setThumbnail("https://images-ext-2.discordapp.net/external/dgcnt05ZbaN52KTCKjEYt5MtV7JqJz2Yxn8GCPFeOjw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/410835593451405312/c7735abad2cab67cf68bd854685914ca.png?width=80&height=80")
         .addField(':small_blue_diamond:By', "<@" + message.author.id + ">")        
@@ -1430,14 +1430,14 @@ client.on("message", message => {
       .setDescription(`
         **__:musical_note: الاغاني:musical_note:__**
 **
-『+p / لتشغيل الاغنية   
-『+s / لتخطي الاغنية
-『+stop / لايقاف الاغنية
-『+vol / لاخفاض او رفع الصوت
-『+np / لعرض اسم الاغنية
-『+q / لعرض الاغانية التي في قيد الانتظار
-『+pa / لايقاف الاغنية مؤقتاّ
-『+r / لاعادة تشغيل الاغنية مرة اخرى بعد انتهائها
+『+p / لتشغيل الاغنية :musical_note:』
+『+s / لتخطي الاغنية:musical_note:』
+『+stop / لايقاف الاغنية:musical_note:』
+『+vol / لاخفاض او رفع الصوت:musical_note:』
+『+np / لعرض اسم الاغنية:musical_note:』
+『+q / لعرض الاغانية التي في قيد الانتظار:musical_note:』
+『+pa / لايقاف الاغنية مؤقتاّ:musical_note:』
+『+r / لاعادة تشغيل الاغنية مرة اخرى بعد انتهائها:musical_note:』
 **
 `)
 
