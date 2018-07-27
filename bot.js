@@ -28,7 +28,7 @@ client.user.setGame(`+help | +inv ${client.guilds.size} Servers  `,"https://www.
   console.log('')
 });
 
-cclient.on('ready', () => {});
+client.on('ready', () => {});
 var download = function(uri, filename, callback) {
     request.head(uri, function(err, res, body) {
         console.log('content-type:', res.headers['content-type']);
