@@ -458,13 +458,13 @@ client.on("ready", async  => {
 setInterval(function(){
 client.channels.find('id', '469221625728991243').setName("♨");
 client.channels.find('id', '469221625728991243').setName("ا");
-client.channels.find('id', '469221625728991243').setName("ل");
-client.channels.find('id', '469221625728991243').setName("م");
-client.channels.find('id', '469221625728991243').setName("ح ");
-client.channels.find('id', '469221625728991243').setName("ا");
-client.channels.find('id', '469221625728991243').setName("د");
-client.channels.find('id', '469221625728991243').setName("ث");
-client.channels.find('id', '469221625728991243').setName("ة");
+client.channels.find('id', '469221625728991243').setName("ال");
+client.channels.find('id', '469221625728991243').setName("الم");
+client.channels.find('id', '469221625728991243').setName("المح");
+client.channels.find('id', '469221625728991243').setName("المحا");
+client.channels.find('id', '469221625728991243').setName("المحاد");
+client.channels.find('id', '469221625728991243').setName("المحادث");
+client.channels.find('id', '469221625728991243').setName("المحادثة");
 client.channels.find('id', '469221625728991243').setName("♨");
 
   }, 3000);
