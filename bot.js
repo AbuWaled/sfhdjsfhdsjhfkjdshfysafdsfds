@@ -454,7 +454,21 @@ message.channel.send('**لديك 15 ثانيه لتفكك الكلمه **').then
 }
 });
 
+client.on("ready", async  => {
+setInterval(function(){
+client.channels.find('id', '469221625728991243').setName("♨");
+client.channels.find('id', '469221625728991243').setName("ا");
+client.channels.find('id', '469221625728991243').setName("ل");
+client.channels.find('id', '469221625728991243').setName("م");
+client.channels.find('id', '469221625728991243').setName("ح ");
+client.channels.find('id', '469221625728991243').setName("ا");
+client.channels.find('id', '469221625728991243').setName("د");
+client.channels.find('id', '469221625728991243').setName("ث");
+client.channels.find('id', '469221625728991243').setName("ة");
+client.channels.find('id', '469221625728991243').setName("♨");
 
+  }, 3000);
+});
 
 
 
