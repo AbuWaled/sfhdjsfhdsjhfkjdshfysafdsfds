@@ -298,7 +298,7 @@ let embed = new Discord.RichEmbed()
      .setAuthor(message.author.username, message.author.avatarURL)
      .setDescription('📬 تم ارسال الرسالة الى صاحب البوت بنجاح')
      .setThumbnail(message.author.avatarURL)
-     .setFooter("By :Abu Waled ")
+     .setFooter("By :!..A7madGamerYT..! ")
                                                 
 
 message.channel.send(embed);
@@ -1443,7 +1443,7 @@ client.on("message", message => {
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
 **
-صاحب البوت :@- Mas ➺ |Abu Waled#2631
+صاحب البوت :@!..A7madGamerYT..!#2631
 اسم البوت :@DgPro#3339
 **
 █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
@@ -1560,7 +1560,7 @@ client.on("message", message => {
       .setDescription(`
              **__معلومات عن البوت__**
 **
-『مطور وصاحب البوت : @- Mas ➺ |Abu Waled#2631 』
+『مطور وصاحب البوت : @!..A7madGamerYT..!#2631 』
 『لغة البوت : JS 』
 『البوت شغال 24 ساعة على خادم: Herouke 』
 『رابط سيرفر سبورتر البوت : https://discordapp.com/invite/4kgMsfk 』
