@@ -1294,7 +1294,7 @@ client.on('message', message => {
 .addField(' الاعضاء👥 ',` 『${client.users.size}』 `)
 .addField('الرومات📚 ',`『${client.channels.size}』`) 
 .addField(' البنق:rocket: ',`『${Date.now() - message.createdTimestamp}』`) 
-.addField('مصمم  + صاحب البوت ',`@- Mas ➺ |Abu Waled#2631`)
+.addField('مصمم  + صاحب البوت ',`!..A7madGamerYT..!#2631`)
 .setColor('#7d2dbe')
   message.channel.sendEmbed(embed);
     }
