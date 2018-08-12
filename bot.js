@@ -331,17 +331,8 @@ client.on('message', message => {
 });
 
 
-client.on('message', message => {
-	var prefix = "+";
-if (message.content.startsWith(prefix + 'tag')) {
-    let args = message.content.split(" ").slice(1);
-if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');  
 
-    figlet(args.join(" "), (err, data) => {
-              message.channel.send("```" + data + "```")
-           })
-}
-});
+
 
 client.on('message', message => { 
 let prefix = '+'
@@ -1568,7 +1559,6 @@ client.on("message", message => {
 『+contact/ لارسال رسالة لصاحب البوت』
 『+emojilist / يعرض لك ايموجي السيرفر :yum:』
 『+info / لكي ترا معلومات عن البوت :robot:』
-『+tag / لكتابة اي نص بشكل حلو:capital_abcd:』
 『+say / لجعل البوت يكرر كلامك 』
 **
 `)
