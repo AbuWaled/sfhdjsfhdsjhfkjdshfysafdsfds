@@ -362,7 +362,7 @@ message.channel.send(`**# ${args}**`); // محطوط # عشان محد يستخ�
 
 
 const sWlc = {}
-const premium = ['389090790984515594']
+const premium = ['460106813711319050']
 client.on('message', message => {
 var prefix = "+";
 if(message.channel.type === "dm") return;
@@ -371,15 +371,28 @@ if(message.author.bot) return;
     channel: "welcome"
 }
 const channel = sWlc[message.guild.id].channel
-  if (message.content.startsWith(prefix + "setwelcome")) {
+  if (message.content.startsWith(prefix + "setWlc")) {
     if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
     let newChannel = message.content.split(' ').slice(1).join(" ")
-    if(!newChannel) return message.reply(`**${prefix}setwelcomer <channel name>**`)
+    if(!newChannel) return message.reply(`**${prefix}setWlc <channel name>**`)
     sWlc[message.guild.id].channel = newChannel
     message.channel.send(`**${message.guild.name} تم تغيير روم الترحيب الى ${newChannel}**`);
   }
-});
+       if(message.content.startsWith(prefix + "setWlc msg")) {
 
+            if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**لا تملك صلاحيه**")
+
+            if(!msz) {
+
+                message.channel.send("للستخدام: +setWlc msg <message>")
+
+            } else {
+
+                message.channel.send(`**تم تغير الي __${msz}__**`)
+
+                sw[message.guild.id].msk = msz
+  }
+});
 
 
 
