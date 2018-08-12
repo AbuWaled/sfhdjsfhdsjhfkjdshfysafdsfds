@@ -392,6 +392,7 @@ const channel = sWlc[message.guild.id].channel
 
                 sw[message.guild.id].msk = msz
   }
+}
 });
 
 
