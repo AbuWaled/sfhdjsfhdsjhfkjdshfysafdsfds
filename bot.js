@@ -1545,7 +1545,7 @@ message.author.sendEmbed(embed)
 
 }
 }); 
-emojilist tag info say setwelcome
+
 client.on("message", message => {
  if (message.content === "+help") {
   const embed = new Discord.RichEmbed() 
