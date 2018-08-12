@@ -625,12 +625,31 @@ if(message.content === adminprefix + "restart") {
 
 
 
- client.on('guildCreate', guild => {
-  client.channels.get("464035064511201289").send(`**تم اضافة البوت في سيرفر جديد مبروكك
-اسم السيرفر: __${guild.name}__
-اونر السيرفر: __${guild.owner}__**`)
-}); 
    
+ client.on('guildCreate', guild => {
+         const embed = new Discord.RichEmbed()
+     .setColor("RED")
+     .setTitle('Click Here To Add Bot .!')
+     .setURL('https://discordapp.com/oauth2/authorize/?permissions=268443710&scope=bot&client_id=460106813711319050 ')
+  .setDescription(`**
+  New Server Add DgPro ✅
+اسم السيرفر: ${guild.name}
+صاحب السيرفر: ${guild.owner}**`);
+client.channels.get("464035064511201289").sendEmbed(embed)
+});
+
+client.on('guildDelete', guild => {
+         const embed = new Discord.RichEmbed()
+     .setColor("GOLD")
+     .setTitle('Click Here To Add Bot .!')
+     .setURL(' https://discordapp.com/oauth2/authorize/?permissions=268443710&scope=bot&client_id=460106813711319050 ')
+  .setDescription(`**
+  Server Kicked DgPro :cry:
+اسم السيرفر: ${guild.name}
+صاحب السيرفر: ${guild.owner}**`);
+client.channels.get("464035064511201289").sendEmbed(embed)
+});
+ 
 
  client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find('name', 'welcome');
