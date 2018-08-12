@@ -308,6 +308,91 @@ message.channel.send(embed);
     
 });
 
+client.on('message', message => {
+    if (message.content.startsWith("+info")) {
+    message.channel.send({
+        embed: new Discord.RichEmbed()
+            .setAuthor(client.user.username,client.user.avatarURL)
+            .setThumbnail(client.user.avatarURL)
+            .setColor('RANDOM')
+            .setTitle('``INFO DgPro`` ')
+            .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
+            .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
+            .addField('``servers``', [client.guilds.size], true)
+            .addField('``channels``' , `[ ${client.channels.size} ]` , true)
+            .addField('``Users``' ,`[ ${client.users.size} ]` , true)
+            .addField('``My Name``' , `[ ${client.user.tag} ]` , true)
+            .addField('``My ID``' , `[ ${client.user.id} ]` , true)
+			      .addField('``My Prefix``' , `[ + ]` , true)
+			      .addField('``My Language``' , `[ Java Script ]` , true)
+			      .setFooter('By | !..A7madGamerYT..!')
+    })
+}
+});
+
+
+client.on('message', message => {
+	var prefix = "+";
+if (message.content.startsWith(prefix + 'tag')) {
+    let args = message.content.split(" ").slice(1);
+if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');  
+
+    figlet(args.join(" "), (err, data) => {
+              message.channel.send("```" + data + "```")
+           })
+}
+});
+
+client.on('message', message => { 
+let prefix = '+'
+    if (message.content.startsWith(prefix + 'emojilist')) {
+
+        const List = message.guild.emojis.map(e => e.toString()).join(" ");
+
+        const EmojiList = new Discord.RichEmbed()
+            .setTitle('➠ Emojis') 
+            .setAuthor(message.guild.name, message.guild.iconURL) 
+            .setColor('RANDOM') 
+            .setDescription(List) 
+            .setFooter(message.guild.name) 
+        message.channel.send(EmojiList) 
+    }
+});
+
+
+client.on('message',function(message) {
+	let prefix = "+";
+let args = message.content.split(" ").slice(1).join(" ");
+if(message.content.startsWith(prefix + "say")) {
+if(!args) return;
+message.channel.send(`**# ${args}**`); // محطوط # عشان محد يستخدم البوت لتبنيد / طرد احد من السيرفر
+}
+});
+
+
+const sWlc = {}
+const premium = ['389090790984515594']
+client.on('message', message => {
+var prefix = "+";
+if(message.channel.type === "dm") return;
+if(message.author.bot) return;
+  if(!sWlc[message.guild.id]) sWlc[message.guild.id] = {
+    channel: "welcome"
+}
+const channel = sWlc[message.guild.id].channel
+  if (message.content.startsWith(prefix + "setwelcome")) {
+    if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
+    let newChannel = message.content.split(' ').slice(1).join(" ")
+    if(!newChannel) return message.reply(`**${prefix}setwelcomer <channel name>**`)
+    sWlc[message.guild.id].channel = newChannel
+    message.channel.send(`**${message.guild.name} تم تغيير روم الترحيب الى ${newChannel}**`);
+  }
+});
+
+
+
+
+
 client.on('message', function(message) {
 	const myID = "444126346676011028";
     let args = message.content.split(" ").slice(1).join(" ");
@@ -512,65 +597,6 @@ client.on('message', message => {
 }); / / / / // / / / 
 
 
-client.on("message",function(message) {
-    if(message.content.startsWith(prefix + "info")) {
-           let uptime = client.uptime;
-
-    let days = 0;
-    let hours = 0;
-    let minutes = 0;
-    let seconds = 0;
-    let notCompleted = true;
-
-    while (notCompleted) {
-
-        if (uptime >= 8.64e+7) {
-
-            days++;
-            uptime -= 8.64e+7;
-
-        } else if (uptime >= 3.6e+6) {
-
-            hours++;
-            uptime -= 3.6e+6;
-
-        } else if (uptime >= 60000) {
-
-            minutes++;
-            uptime -= 60000;
-
-        } else if (uptime >= 1000) {
-            seconds++;
-            uptime -= 1000;
-
-        }
-
-        if (uptime < 1000)  notCompleted = false;
-
-    }
-let ms = 1000;
-let v1 = new Discord.RichEmbed()
-  v1.setTimestamp(new Date())
-  v1.setColor("RED")
-  v1.setDescription('***__ Collecting Data __***')
-  v1.setFooter("DgPro") 
-let heroo = new Discord.RichEmbed()
-.setColor('RANDOM')
-.setTimestamp(new Date())
-.setThumbnail(client.user.avatarURL)
-.setAuthor(client.user.username,client.user.avatarURL)
-.addField("MyPrefix :",`**[ ${prefix} ]**`,true)
-.addField("Guilds :","**[ "+client.guilds.size+" ]**",true)
-.addField("Channels :","**[ "+client.channels.size+" ]**",true)
-.addField("Users :","**[ "+client.users.size+" ]**",true)
-.addField("MyName : ","**[ "+client.user.username+" ]**",true)
-.addField("MyID :","**[ "+client.user.id+" ]**",true)
-.addField("RamUsage :",`**[ ${(process.memoryUsage().rss / 1048576).toFixed()}MB ]**`,true)
-.addField("UpTime :",`**[** **Days:** \`${days}\` **Hours:** \`${hours}\` **Minutes:** \`${minutes}\` **Seconds:** \`${seconds}\` **]**`,true)
-.setFooter("DgPro")
-  message.channel.send({embed:v1}).then(m => m.edit({embed:heroo})),ms; 
-    }
-});/////////////////////////////
 
 
 
@@ -1510,6 +1536,7 @@ client.on("message", message => {
 『+unmute /  لفك الميوت عن العضو :loud_sound:』
 『+mct / لقفل الشات :no_entry:』
 『+unmct / لفتح الشات:on:』
+『+setwelcome / لتحديد روم محد للولكم :heart_eyes_cat:』 
 **
 `)
 
@@ -1518,7 +1545,7 @@ message.author.sendEmbed(embed)
 
 }
 }); 
-
+emojilist tag info say setwelcome
 client.on("message", message => {
  if (message.content === "+help") {
   const embed = new Discord.RichEmbed() 
@@ -1539,6 +1566,10 @@ client.on("message", message => {
 『+member / عدد الاعضاء :busts_in_silhouette:』
 『+bot / لكي ترا البوت في كم سيرفر + كم عضو + روم:robot:』
 『+contact/ لارسال رسالة لصاحب البوت』
+『+emojilist / يعرض لك ايموجي السيرفر :yum:』
+『+info / لكي ترا معلومات عن البوت :robot:』
+『+tag / لكتابة اي نص بشكل حلو:capital_abcd:』
+『+say / لجعل البوت يكرر كلامك 』
 **
 `)
 
