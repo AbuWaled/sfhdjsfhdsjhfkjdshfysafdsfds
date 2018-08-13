@@ -369,51 +369,31 @@ if(message.channel.type === "dm") return;
 if(message.author.bot) return;
   if(!sWlc[message.guild.id]) sWlc[message.guild.id] = {
     channel: "welcome",
-    wlcmsg: "مرحبا بك"
+    msz: "مرحبا بك"
 }
 const channel = sWlc[message.guild.id].channel
-  if (message.content.startsWith(prefix + "setWlc")) {
+  if (message.content.startsWith(prefix + "setwlc")) {
     if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
     let newChannel = message.content.split(' ').slice(1).join(" ")
     if(!newChannel) return message.reply(`**${prefix}setWlc <channel name>**`)
     sWlc[message.guild.id].channel = newChannel
     message.channel.send(`**${message.guild.name} تم تغيير روم الترحيب الى ${newChannel}**`);
   }
-       if(message.content.startsWith(prefix + "setWlc msg")) {
+       if(message.content.startsWith(prefix + "setwlc msg")) {
 
             if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**لا تملك صلاحيه**")
 
             if(!msz) {
 
-                message.channel.send("للستخدام: +setWlc msg <message>")
+                message.channel.send("للستخدام: +setwlc msg <message>")
 
             } else {
 
                 message.channel.send(`**تم تغير الي __${msz}__**`)
 
                 sw[message.guild.id].msk = msz
-
+  }
 }
- const embed = new Discord.RichEmbed()
-
-        .setTitle("Member joind.")
-
-        .setColor("GREEN")
-
-        .setThumbnail(member.user.avatarURL)
-
-        .setDescription(`**${sw[member.guild.id].msk}**`)
-
-        .addField("**Member name**", `[<@${member.user.id}>]`,true)
-
-        .addField("**Now we are**", `[${member.guild.memberCount}]`,true)
-
-        channel.sendMessage(`<@${member.user.id}>`)
-
-        channel.sendEmbed(embed)
-
-    }
-
 });
 
 
