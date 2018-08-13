@@ -395,8 +395,6 @@ const channel = sWlc[message.guild.id].channel
   }
 }
 
-});
-
  const embed = new Discord.RichEmbed()
 
         .setTitle("Member joind.")
