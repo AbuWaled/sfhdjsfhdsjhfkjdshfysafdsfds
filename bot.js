@@ -392,9 +392,8 @@ const channel = sWlc[message.guild.id].channel
                 message.channel.send(`**تم تغير الي __${msz}__**`)
 
                 sw[message.guild.id].msk = msz
-  }
-}
 
+}
  const embed = new Discord.RichEmbed()
 
         .setTitle("Member joind.")
