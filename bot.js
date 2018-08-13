@@ -372,14 +372,14 @@ if(message.author.bot) return;
     wlcmsg: "مرحبا بك"
 }
 const channel = sWlc[message.guild.id].channel
-  if (message.content.startsWith(prefix + "setWlc")) {
+  if (message.content.startsWith(prefix + "setwlc")) {
     if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
     let newChannel = message.content.split(' ').slice(1).join(" ")
     if(!newChannel) return message.reply(`**${prefix}setWlc <channel name>**`)
     sWlc[message.guild.id].channel = newChannel
     message.channel.send(`**${message.guild.name} تم تغيير روم الترحيب الى ${newChannel}**`);
   }
-       if(message.content.startsWith(prefix + "setWlc msg")) {
+       if(message.content.startsWith(prefix + "setwlc msg")) {
 
             if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**لا تملك صلاحيه**")
 
@@ -393,6 +393,26 @@ const channel = sWlc[message.guild.id].channel
 
                 sw[message.guild.id].msk = msz
   }
+ const embed = new Discord.RichEmbed()
+
+        .setTitle("Member joind.")
+
+        .setColor("GREEN")
+
+        .setThumbnail(member.user.avatarURL)
+
+        .setDescription(`**${sw[member.guild.id].msk}**`)
+
+        .addField("**Member name**", `[<@${member.user.id}>]`,true)
+
+        .addField("**Now we are**", `[${member.guild.memberCount}]`,true)
+
+        channel.sendMessage(`<@${member.user.id}>`)
+
+        channel.sendEmbed(embed)
+
+    }
+}
 }
 });
 
@@ -1541,7 +1561,8 @@ client.on("message", message => {
 『+unmute /  لفك الميوت عن العضو :loud_sound:』
 『+mct / لقفل الشات :no_entry:』
 『+unmct / لفتح الشات:on:』
-『+setwelcome / لتحديد روم محد للولكم :heart_eyes_cat:』 
+『+setwlc / لتحديد روم محد للترحيب :heart_eyes_cat:』 
+『+setwlc msg [msg] / علشان تحدد نص الترحيب :heart_eyes_cat:』
 **
 `)
 
