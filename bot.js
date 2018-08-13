@@ -413,7 +413,6 @@ const channel = sWlc[message.guild.id].channel
 
     }
 }
-}
 });
 
 
