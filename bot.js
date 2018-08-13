@@ -372,14 +372,14 @@ if(message.author.bot) return;
     wlcmsg: "مرحبا بك"
 }
 const channel = sWlc[message.guild.id].channel
-  if (message.content.startsWith(prefix + "setwlc")) {
+  if (message.content.startsWith(prefix + "setWlc")) {
     if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
     let newChannel = message.content.split(' ').slice(1).join(" ")
     if(!newChannel) return message.reply(`**${prefix}setWlc <channel name>**`)
     sWlc[message.guild.id].channel = newChannel
     message.channel.send(`**${message.guild.name} تم تغيير روم الترحيب الى ${newChannel}**`);
   }
-       if(message.content.startsWith(prefix + "setwlc msg")) {
+       if(message.content.startsWith(prefix + "setWlc msg")) {
 
             if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**لا تملك صلاحيه**")
 
@@ -393,6 +393,8 @@ const channel = sWlc[message.guild.id].channel
 
                 sw[message.guild.id].msk = msz
   }
+}
+});
  const embed = new Discord.RichEmbed()
 
         .setTitle("Member joind.")
