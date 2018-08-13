@@ -394,7 +394,9 @@ const channel = sWlc[message.guild.id].channel
                 sw[message.guild.id].msk = msz
   }
 }
+
 });
+
  const embed = new Discord.RichEmbed()
 
         .setTitle("Member joind.")
