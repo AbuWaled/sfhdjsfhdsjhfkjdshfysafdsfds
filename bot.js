@@ -412,7 +412,7 @@ const channel = sWlc[message.guild.id].channel
         channel.sendEmbed(embed)
 
     }
-}
+
 });
 
 
