@@ -1969,6 +1969,32 @@ message.author.sendEmbed(embed)
 }
 }); 
 
+
+client.on("message", message => {
+ if (message.content === "+help") {
+  const embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+      **:kaaba: اوامر بوت القرآن الكريم :kaaba:**
+**
+
+:regional_indicator_a: القرآن كاملاً ماهر المعيقلي
+:regional_indicator_b: سورة البقرة كاملة للشيخ مشاري العفاسي
+:regional_indicator_c: سورة الكهف كاملة بصوت مشارى بن راشد العفاسي
+:stop_button: لإيقاف القرآن الكريم
+:regional_indicator_d: القرآن كاملاً عبدالباسط عبدالصمد
+:regional_indicator_e: القرآن كاملاً ياسر الدوسري
+:regional_indicator_f: سورة الواقعه بصوت الشيخ مشاري بن راشد العفاسي
+**
+`)
+
+
+message.author.sendEmbed(embed)
+
+}
+}); 
+
 client.on("message", message => {
  if (message.content === "+help") {
   const embed = new Discord.RichEmbed() 
