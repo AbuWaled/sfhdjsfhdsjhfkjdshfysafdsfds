@@ -2061,21 +2061,7 @@ reaction3.on("collect", r => {
 }
 });
 
-client.on("message", message => {
- if (message.content === "+help") {
-  const embed = new Discord.RichEmbed() 
-      .setColor("#ffff00")
-      .setThumbnail(message.author.avatarURL)
-      .setDescription(`
-             **__معلومات عن البوت__**
-**
-『مطور وصاحب البوت : @!..A7madGamerYT..!#2631 』
-『لغة البوت : JS 』
-『البوت شغال 24 ساعة على خادم: Herouke 』
-『رابط سيرفر سبورتر البوت : https://discordapp.com/invite/4kgMsfk 』
-『رابط لاضافة البوت : https://discordapp.com/oauth2/authorize/?permissions=268443710&scope=bot&client_id=460106813711319050 』
-**
-`)
+
 
 
 message.author.sendEmbed(embed)
