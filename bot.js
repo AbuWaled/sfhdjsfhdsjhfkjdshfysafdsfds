@@ -524,15 +524,22 @@ let prefix = '+'
 });
 
 
-client.on('message',function(message) {
-	let prefix = "+";
-let args = message.content.split(" ").slice(1).join(" ");
-if(message.content.startsWith(prefix + "say")) {
-if(!args) return;
-message.channel.send(`**# ${args}**`); // محطوط # عشان محد يستخدم البوت لتبنيد / طرد احد من السيرفر
-}
-});
+client.on('message' , async (message) => {
+ if (message.content.startsWith(prefix + 'say')) {
+  const args = message.content.substring(prefix.length).split(' ');
 
+ message.delete();
+args.shift() 
+let msg = args.join(' ') 
+message.channel.createWebhook(message.author.username, message.author.avatarURL) 
+    .then(wb => {
+        const user = new Discord.WebhookClient(wb.id, wb.token) 
+        user.send(msg); 
+        user.delete() 
+    })
+    .catch(console.error)
+ }
+});
 
 const sWlc = {}
 const premium = ['460106813711319050']
@@ -1940,8 +1947,10 @@ client.on("message", message => {
 『+unmute /  لفك الميوت عن العضو :loud_sound:』
 『+mct / لقفل الشات :no_entry:』
 『+unmct / لفتح الشات:on:』
-『+setwlc / لتحديد روم محد للترحيب :heart_eyes_cat:』 
-『+setwlc msg [msg] / علشان تحدد نص الترحيب :heart_eyes_cat:』
+『+role @someone [role]』
+『+roleremove @someone [role]』
+『+roleremove all , bots , humans [role]』
+『+role all , bots , humans [role]』
 **
 `)
 
@@ -1973,7 +1982,7 @@ client.on("message", message => {
 『+contact/ لارسال رسالة لصاحب البوت』
 『+emojilist / يعرض لك ايموجي السيرفر :yum:』
 『+info / لكي ترا معلومات عن البوت :robot:』
-『+say / لجعل البوت يكرر كلامك :robot:』
+『+say / لجعل البوت يصنع بوت باسمك + بصورتك ويكرر كلامك ويحذف البوتات خلال ثواني:robot:』
 『+user / لعرض معلومات حسابك او حساب شخص اخر :mens: 』
 **
 `)
