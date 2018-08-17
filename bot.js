@@ -1904,24 +1904,73 @@ client.on('message', message => {
     }
 });
 
-
-      client.on('message', message => {
-   if(message.content.startsWith(prefix + 'help')) {
-            if(!message.channel.guild) return;
-        let embed = new Discord.RichEmbed()
-        .setAuthor(` ${message.author.username} `, message.author.avatarURL)      
-        .setTitle(`:small_orange_diamond:تم ارسال الاوامر في الخاص `)
-     message.channel.sendEmbed(embed);
-       }
-     
-   });
-
-
-client.on("message", message => {
- if (message.content === "+help") {
+   client.on("message", function(message) {
+	var prefix = "+";
+   if(message.content.startsWith(prefix + "help")) {
+    let messageArgs = message.content.split(" ").slice(1).join(" ");
+    let messageRPS = message.content.split(" ").slice(2).join(" ");
+    let arrayRPS = ['**# - Rock**','**# - Paper**','**# - Scissors**'];
+    let result = `${arrayRPS[Math.floor(Math.random() * arrayRPS.length)]}`;
+    var RpsEmbed = new Discord.RichEmbed()
+    .setAuthor(message.author.username)
+    .setThumbnail(message.author.avatarURL)
+    .addField("Puplic |اوامر عامه","👥",true)
+    .addField("Admin |اوامر لادمنيه ","🔒",true)
+    .addField("Games | العاب","🎮",true)
+	    .addField("Muisc | اغاني","🎵",true)
+	.addField("Quran | قرأن ","🕋",ture)
+    message.channel.send(RpsEmbed).then(msg => {
+        msg.react('👥')
+        msg.react("🔒")
+        msg.react("🎮")
+		        msg.react("🎵")
+		msg.react("🕋")
+.then(() => msg.react('👥'))
+.then(() =>msg.react('🔒'))
+.then(() => msg.react('🎮'))
+.then(() => msg.react('🎵'))
+.then(() => msg.react('🕋'))
+let reaction1Filter = (reaction, user) => reaction.emoji.name === '👥' && user.id === message.author.id;
+let reaction2Filter = (reaction, user) => reaction.emoji.name === '🔒' && user.id === message.author.id;
+let reaction3Filter = (reaction, user) => reaction.emoji.name === '🎮' && user.id === message.author.id;
+let reaction4Filter = (reaction, user) => reaction.emoji.name === '🎵' && user.id === message.author.id;
+let reaction5Filter = (reaction, user) => reaction.emoji.name === '🕋' && user.id === message.author.id;
+let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 20000 });
+	    
+let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 19000 });
+let reaction3 = msg.createReactionCollector(reaction3Filter, { time: 18000 });
+let reaction4 = msg.createReactionCollector(reaction4Filter, { time: 18000 });
+let reaction5 = msg.createReactionCollector(reaction4Filter, { time: 18000 });
+reaction1.on("collect", r => {
   const embed = new Discord.RichEmbed() 
-      .setColor("#ffff00")
-      .setThumbnail(message.author.avatarURL)
+      .setColor("#000000")
+      .setDescription(`
+        ***__:earth_africa: اوامر عامه:earth_africa: __***
+**
+『+id / معلومات عن حسابك:bust_in_silhouette:』
+『+rooms / يعرض لك الرومات وعددها』
+『+server / معلومات عن السيرفر:bar_chart:』
+『+ser-av / يعرض صوره السيرفر :camera:』
+『+avatar / يعرض صورتك او صوره شخص:camera:』
+『+date / يعرض لك التاريخ:calendar:』
+『+ping / يعرض لك سرعه اتصال البوت:rocket:』
+『+support / سيرفر الدعم القني و المساعده』
+『+inv / اضافه البوت:sparkles:』
+『+member / عدد الاعضاء :busts_in_silhouette:』
+『+bot / لكي ترا البوت في كم سيرفر + كم عضو + روم:robot:』
+『+contact/ لارسال رسالة لصاحب البوت』
+『+emojilist / يعرض لك ايموجي السيرفر :yum:』
+『+info / لكي ترا معلومات عن البوت :robot:』
+『+say / لجعل البوت يصنع بوت باسمك + بصورتك ويكرر كلامك ويحذف البوتات خلال ثواني:robot:』
+『+user / لعرض معلومات حسابك او حساب شخص اخر :mens: 』
+**
+`)
+   message.author.sendEmbed(embed)
+      message.reply(':small_orange_diamond:تم ارسال الاوامر العامه في الخاص')
+})
+reaction2.on("collect", r => {
+	  const embed = new Discord.RichEmbed() 
+      .setColor("#000000")
       .setDescription(`
 **
 صاحب البوت :@!..A7madGamerYT..!#2631
@@ -1953,51 +2002,31 @@ client.on("message", message => {
 『+role all , bots , humans [role]』
 **
 `)
-
-
-message.author.sendEmbed(embed)
-
-}
-}); 
-
-client.on("message", message => {
- if (message.content === "+help") {
+   message.author.sendEmbed(embed)
+      message.reply('تم ارسال الاوامر الادارية في الخاص')
+})
+reaction3.on("collect", r => {
   const embed = new Discord.RichEmbed() 
-      .setColor("#ffff00")
-      .setThumbnail(message.author.avatarURL)
+      .setColor("#000000")
       .setDescription(`
-        ***__:earth_africa: اوامر عامه:earth_africa: __***
-**
-『+id / معلومات عن حسابك:bust_in_silhouette:』
-『+rooms / يعرض لك الرومات وعددها』
-『+server / معلومات عن السيرفر:bar_chart:』
-『+ser-av / يعرض صوره السيرفر :camera:』
-『+avatar / يعرض صورتك او صوره شخص:camera:』
-『+date / يعرض لك التاريخ:calendar:』
-『+ping / يعرض لك سرعه اتصال البوت:rocket:』
-『+support / سيرفر الدعم القني و المساعده』
-『+inv / اضافه البوت:sparkles:』
-『+member / عدد الاعضاء :busts_in_silhouette:』
-『+bot / لكي ترا البوت في كم سيرفر + كم عضو + روم:robot:』
-『+contact/ لارسال رسالة لصاحب البوت』
-『+emojilist / يعرض لك ايموجي السيرفر :yum:』
-『+info / لكي ترا معلومات عن البوت :robot:』
-『+say / لجعل البوت يصنع بوت باسمك + بصورتك ويكرر كلامك ويحذف البوتات خلال ثواني:robot:』
-『+user / لعرض معلومات حسابك او حساب شخص اخر :mens: 』
+        **__:video_game:الالعاب:video_game:__**
+ **       
+『:video_game:+انجاز:video_game:』
+『:video_game:+هكر:video_game:』
+『:video_game:+زواج:video_game:』
+『:video_game:+فكك:video_game:』
+『:video_game:+حب:video_game:』
+『:video_game:+لو خيروك:video_game:』
+『:video_game:+خواطر:video_game:』
+『:video_game:+عقاب:video_game:』
 **
 `)
-
-
-message.author.sendEmbed(embed)
-
-}
-}); 
-
-client.on("message", message => {
- if (message.content === "+help") {
+   message.author.sendEmbed(embed)
+   message.reply('تم ارسال اوامر الالعاب في الخاص')
+})
+reaction3.on("collect", r => {
   const embed = new Discord.RichEmbed() 
-      .setColor("#ffff00")
-      .setThumbnail(message.author.avatarURL)
+      .setColor("#000000")
       .setDescription(`
         **__:musical_note: الاغاني:musical_note:__**
 **
@@ -2011,23 +2040,15 @@ client.on("message", message => {
 『+r / لاعادة تشغيل الاغنية مرة اخرى بعد انتهائها:musical_note:』
 **
 `)
-
-
-message.author.sendEmbed(embed)
-
-}
-}); 
-
-
-client.on("message", message => {
- if (message.content === "+help") {
+   message.author.sendEmbed(embed)
+  message.reply('تم ارسال اوامر الاغاني في الخاص')
+})
+reaction3.on("collect", r => {
   const embed = new Discord.RichEmbed() 
-      .setColor("#ffff00")
-      .setThumbnail(message.author.avatarURL)
+      .setColor("#000000")
       .setDescription(`
-      **:kaaba: اوامر بوت القرآن الكريم :kaaba:**
+	        **:kaaba: اوامر بوت القرآن الكريم :kaaba:**
 **
-
 :regional_indicator_a: القرآن كاملاً ماهر المعيقلي
 :regional_indicator_b: سورة البقرة كاملة للشيخ مشاري العفاسي
 :regional_indicator_c: سورة الكهف كاملة بصوت مشارى بن راشد العفاسي
@@ -2036,40 +2057,9 @@ client.on("message", message => {
 :regional_indicator_e: القرآن كاملاً ياسر الدوسري
 :regional_indicator_f: سورة الواقعه بصوت الشيخ مشاري بن راشد العفاسي
 **
-`)
-
-
-message.author.sendEmbed(embed)
-
+    })
 }
-}); 
-
-client.on("message", message => {
- if (message.content === "+help") {
-  const embed = new Discord.RichEmbed() 
-      .setColor("#ffff00")
-      .setThumbnail(message.author.avatarURL)
-      .setDescription(`
-        **__:video_game:الالعاب:video_game:__**
- **       
-『:video_game:+انجاز:video_game:』
-『:video_game:+هكر:video_game:』
-『:video_game:+زواج:video_game:』
-『:video_game:+فكك:video_game:』
-『:video_game:+حب:video_game:』
-『:video_game:+لو خيروك:video_game:』
-『:video_game:+خواطر:video_game:』
-『:video_game:+عقاب:video_game:』
-**
-   
-        
-`)
-
-
-message.author.sendEmbed(embed)
-
-}
-}); 
+});
 
 client.on("message", message => {
  if (message.content === "+help") {
