@@ -862,12 +862,6 @@ client.channels.get("464035064511201289").sendEmbed(embed)
 });
  
 
- client.on('guildMemberAdd', member => {
-  const channel = member.guild.channels.find('name', 'welcome');
-  if (!channel) return;
-  channel.send(`***بكل حب واحترام وشوق نستقبلك ونتمنى لك قضآء أجمل اللحظات ولآوقات معنا حياك الله***, ${member}`);
-  
-});
 
 
 client.on('message', message => {
