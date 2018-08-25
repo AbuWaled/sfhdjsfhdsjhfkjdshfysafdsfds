@@ -632,53 +632,7 @@ client.on('message', function(message) {
     }
 });
 
-client.on("ready", async  => {
-setInterval(function(){
-client.channels.find('id', '469692023515906061').setName("R");
-client.channels.find('id', '469692023515906061').setName("Ro");
-client.channels.find('id', '469692023515906061').setName("Roa");
-client.channels.find('id', '469692023515906061').setName("Road");
-client.channels.find('id', '469692023515906061').setName("Road T");
-client.channels.find('id', '469692023515906061').setName("Road To");
-client.channels.find('id', '469692023515906061').setName("Road To");
-client.channels.find('id', '469692023515906061').setName("Road To 2");
-client.channels.find('id', '469692023515906061').setName("Road To 2K");
-client.channels.find('id', '469692023515906061').setName("Road To 2K");
-client.channels.find('id', '469692023515906061').setName("Road To 2");
-client.channels.find('id', '469692023515906061').setName("Road To ");
-client.channels.find('id', '469692023515906061').setName("Road T");
-client.channels.find('id', '469692023515906061').setName("Road ");
-client.channels.find('id', '469692023515906061').setName("Roa");
-client.channels.find('id', '469692023515906061').setName("Ro");
-client.channels.find('id', '469692023515906061').setName("R");
- 
- 
-  }, 3000);
-});
 
-client.on("ready", async  => {
-setInterval(function(){
-client.channels.find('id', '476357334390538241').setName("R");
-client.channels.find('id', '476357334390538241').setName("Ro");
-client.channels.find('id', '476357334390538241').setName("Roa");
-client.channels.find('id', '476357334390538241').setName("Road");
-client.channels.find('id', '476357334390538241').setName("Road T");
-client.channels.find('id', '476357334390538241').setName("Road To");
-client.channels.find('id', '476357334390538241').setName("Road To");
-client.channels.find('id', '476357334390538241').setName("Road To 2");
-client.channels.find('id', '476357334390538241').setName("Road To 20");
-client.channels.find('id', '476357334390538241').setName("Road To 200");
-client.channels.find('id', '476357334390538241').setName("Road To 20");
-client.channels.find('id', '476357334390538241').setName("Road To 2");
-client.channels.find('id', '476357334390538241').setName("Road To");
-client.channels.find('id', '476357334390538241').setName("Road T");
-client.channels.find('id', '476357334390538241').setName("Road");
-client.channels.find('id', '476357334390538241').setName("Roa");
-client.channels.find('id', '476357334390538241').setName("Ro");
-client.channels.find('id', '476357334390538241').setName("R");
- 
-  }, 3000);
-});
 
 
 
