@@ -590,6 +590,31 @@ client.on('message', msg => {
 });
 
 
+
+client.on('message', msg => {
+  if (msg.content === 'البحرين') {      
+    msg.react("🇧🇭")
+    msg.channel.send("🇧🇭")
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === 'الاردن') {      
+    msg.react("🇯🇴")
+    msg.channel.send("🇯🇴")
+  }
+});
+
+
+client.on('message', msg => {
+  if (msg.content === 'الجزائر') {      
+    msg.react("🇩🇿")
+    msg.channel.send("🇩🇿")
+  }
+});
+
+
+
       client.on('guildDelete', guild => {
         var embed = new Discord.RichEmbed()
         .setColor(0x5500ff)
