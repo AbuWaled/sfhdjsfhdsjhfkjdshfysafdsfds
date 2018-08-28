@@ -1080,7 +1080,7 @@ lient.on("message", message => {
     }}).then(msg => {msg.delete(3000)});
                         }
     
-
+});
 
 
 
