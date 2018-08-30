@@ -726,7 +726,7 @@ message.channel.createWebhook(message.author.username, message.author.avatarURL)
  }
 });
 
-const fs = require("fs");
+
 let points = JSON.parse(fs.readFileSync('./Points.json', 'utf8'));
 client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
@@ -980,7 +980,7 @@ client.on('message', message => {
 	
 
 
-const fs = require("fs");
+
 let points = JSON.parse(fs.readFileSync('./Points.json', 'utf8'));
 client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
