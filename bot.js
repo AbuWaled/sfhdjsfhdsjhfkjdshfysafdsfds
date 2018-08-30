@@ -726,6 +726,40 @@ message.channel.createWebhook(message.author.username, message.author.avatarURL)
  }
 });
 
+const fs = require("fs");
+let points = JSON.parse(fs.readFileSync('./Points.json', 'utf8'));
+client.on('message', message => {
+if (!points[message.author.id]) points[message.author.id] = {
+    points: 50,
+  };
+if (message.content.startsWith(prefix + 'لغز')) {
+    if(!message.channel.guild) return message.reply('**لا تلعب عندي العب بالسيرفرات**').then(m => m.delete(3000));
+
+const type = require('./Games/l3s.json');
+const item = type[Math.floor(Math.random() * type.length)];
+const filter = response => {
+    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+};
+message.channel.send('**الحق عندك 15 ثانية**').then(msg => {
+
+            
+msg.channel.send(`${item.type}`).then(() => {
+        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
+        .then((collected) => {
+        message.channel.send(`${collected.first().author} ✅ أصلي عليك`);
+            let points = {}
+            let userData = points[message.author.id];
+            let userdata = require('./Points.json');
+            userData.points++;
+          })
+          .catch(collected => {
+            message.channel.send(`:pensive:خلص الوقت للأسف:pensive:`);
+          })
+        })
+    })
+}
+});
+
 const sWlc = {}
 const premium = ['460106813711319050']
 client.on('message', message => {
