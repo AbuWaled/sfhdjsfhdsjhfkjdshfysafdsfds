@@ -606,82 +606,6 @@ client.on('message', msg => {
 });
 
 
-const temp = {};
-client.on('message', async message => {
- if(message.channel.type === "dm") return;
-  if(message.author.bot) return;
-   if(!temp[message.guild.id]) temp[message.guild.id] = {
-    time: "3000",
-     category : 'click here',
-      channel : 'click here'
-       }
-        if(message.content.startsWith('+startroom')){
-         if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
-          var ggg= message.guild.createChannel('click here', 'category').then(cg => {
-           var ccc =message.guild.createChannel('click here', 'voice').then(ch => {
-            ch.setParent(cg)
-             message.channel.send('**Done ,**')
-              client.on('message' , message => {
-               if(message.content === '+stoprom') {
-                if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
-                 cg.delete()
-                  ch.delete()
-                   message.channel.send('**Done ,**')
-                    }
-                     });
-                      const time = temp[message.guild.id].time
-                       client.on('message' , message => {
-                        if (message.content.startsWith(prefix + "temptime")) {
-                         if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
-                          let newTime= message.content.split(' ').slice(1).join(" ")
-                          if(!newTime) return message.reply(`**${prefix}temptime <time>  \`1000 = 1s\`**`)
-	                 if(isNaN(newTime)) return message.reply(`** The Time Be Nambers :face_palm: **`);
-	                if(newTime < 1) return message.reply(`**The Time Be Up \`3000s\`**`)
-                       temp[message.guild.id].time = newTime
-                      message.channel.send(`**Temp Rooms Time Change To \`${newTime}\`**`);
-                     }
-                    });
-                   client.on('voiceStateUpdate', (old, neww) => {
-                  let newUserChannel = neww.voiceChannel
-                 let oldUserChannel = old.voiceChannel
-                temp[message.guild.id].category = cg.id
-               temp[message.guild.id].channel = ch.id
-              let channel = temp[message.guild.id].channel
-             let category = temp[message.guild.id].category
-            if(oldUserChannel === undefined && newUserChannel !== undefined && newUserChannel.id == channel) {
-           neww.guild.createChannel(neww.displayName , 'voice').then(c => {
-          c.setParent(category)
-         let scan = setTimeout(()=>{
-        if(!neww.voiceChannel) {
-       c.delete();
-      client.channels.get(channel).overwritePermissions(neww, {
-     CONNECT:true,
-    SPEAK:true
-   })
-  }
- }, temp[neww.guild.id].time);
-  c.overwritePermissions(neww, {
-   CONNECT:true,
-    SPEAK:true,
-     MANAGE_CHANNEL:true,
-      MUTE_MEMBERS:true,
-       DEAFEN_MEMBERS:true,
-	MOVE_MEMBERS:true,
-	 VIEW_CHANNEL:true
-	  })
-	   neww.setVoiceChannel(c)
-            })
-             client.channels.get(channel).overwritePermissions(neww, {
-	      CONNECT:false,
-	       SPEAK:false
-		})
-               }
-              })
-             })
-           })
-          }
-      });
-
 
 
       client.on('guildDelete', guild => {
@@ -727,73 +651,6 @@ message.channel.createWebhook(message.author.username, message.author.avatarURL)
 });
 
 
-
-client.on('message', message => {
-if (!points[message.author.id]) points[message.author.id] = {
-    points: 50,
-  };
-if (message.content.startsWith(prefix + 'لغز')) {
-    if(!message.channel.guild) return message.reply('**لا تلعب عندي العب بالسيرفرات**').then(m => m.delete(3000));
-
-const type = require('./Games/l3s.json');
-const item = type[Math.floor(Math.random() * type.length)];
-const filter = response => {
-    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
-};
-message.channel.send('**الحق عندك 15 ثانية**').then(msg => {
-
-            
-msg.channel.send(`${item.type}`).then(() => {
-        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
-        .then((collected) => {
-        message.channel.send(`${collected.first().author} ✅ أصلي عليك`);
-            let points = {}
-            let userData = points[message.author.id];
-            let userdata = require('./Points.json');
-            userData.points++;
-          })
-          .catch(collected => {
-            message.channel.send(`:pensive:خلص الوقت للأسف:pensive:`);
-          })
-        })
-    })
-}
-});
-
-const sWlc = {}
-const premium = ['460106813711319050']
-client.on('message', message => {
-var prefix = "+";
-if(message.channel.type === "dm") return;
-if(message.author.bot) return;
-  if(!sWlc[message.guild.id]) sWlc[message.guild.id] = {
-    channel: "welcome",
-    msz: "مرحبا بك"
-}
-const channel = sWlc[message.guild.id].channel
-  if (message.content.startsWith(prefix + "setwlc")) {
-    if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
-    let newChannel = message.content.split(' ').slice(1).join(" ")
-    if(!newChannel) return message.reply(`**${prefix}setWlc <channel name>**`)
-    sWlc[message.guild.id].channel = newChannel
-    message.channel.send(`**${message.guild.name} تم تغيير روم الترحيب الى ${newChannel}**`);
-  }
-       if(message.content.startsWith(prefix + "setwlc msg")) {
-
-            if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**لا تملك صلاحيه**")
-
-            if(!msz) {
-
-                message.channel.send("للستخدام: +setwlc msg <message>")
-
-            } else {
-
-                message.channel.send(`**تم تغير الي __${msz}__**`)
-
-                sw[message.guild.id].msk = msz
-  }
-}
-});
 
 
 
@@ -981,37 +838,7 @@ client.on('message', message => {
 
 
 
-client.on('message', message => {
-if (!points[message.author.id]) points[message.author.id] = {
-    points: 50,
-  };
-if (message.content.startsWith(prefix + 'mine')) {
-    if(!message.channel.guild) return message.reply('**لا تلعب عندي العب بالسيرفرات**').then(m => m.delete(3000));
 
-const type = require('./Games/mine.json');
-const item = type[Math.floor(Math.random() * type.length)];
-const filter = response => {
-    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
-};
-message.channel.send('**الحق عندك 15 ثانية**').then(msg => {
-
-            
-msg.channel.send(`${item.type}`).then(() => {
-        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
-        .then((collected) => {
-        message.channel.send(`${collected.first().author} ✅ أصلي عليك`);
-            let points = {}
-            let userData = points[message.author.id];
-            let userdata = require('./Points.json');
-            userData.points++;
-          })
-          .catch(collected => {
-            message.channel.send(`:pensive:خلص الوقت للأسف:pensive:`);
-          })
-        })
-    })
-}
-});
 
 
 
