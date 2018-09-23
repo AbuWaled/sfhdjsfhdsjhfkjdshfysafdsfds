@@ -493,7 +493,7 @@ client.on('message', message => {
             .addField('``My ID``' , `[ ${client.user.id} ]` , true)
 			      .addField('``My Prefix``' , `[ + ]` , true)
 			      .addField('``My Language``' , `[ Java Script ]` , true)
-			      .setFooter('By | !..A7madGamerYT..!')
+			      .setFooter('By | ● 7md🔱🍒#2631')
     })
 }
 });
