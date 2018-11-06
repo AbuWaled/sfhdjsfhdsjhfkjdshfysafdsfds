@@ -466,7 +466,7 @@ let embed = new Discord.RichEmbed()
      .setAuthor(message.author.username, message.author.avatarURL)
      .setDescription('📬 تم ارسال الرسالة الى صاحب البوت بنجاح')
      .setThumbnail(message.author.avatarURL)
-     .setFooter("By :!..A7madGamerYT..! ")
+     .setFooter("By :! PRO 𓅓 7md🔱🍒#2631")
                                                 
 
 message.channel.send(embed);
@@ -493,7 +493,7 @@ client.on('message', message => {
             .addField('``My ID``' , `[ ${client.user.id} ]` , true)
 			      .addField('``My Prefix``' , `[ + ]` , true)
 			      .addField('``My Language``' , `[ Java Script ]` , true)
-			      .setFooter('By | ● 7md🔱🍒#2631')
+			      .setFooter('By | ! PRO 𓅓 7md🔱🍒#2631')
     })
 }
 });
@@ -991,7 +991,7 @@ client.on("message", message => {
     message.channel.sendMessage("", {embed: {
       title: "Done | تــم",
       color: 0x06DF00,
-      description: "تم مسح الرسايل بنجاح :white_check_mark: ",
+      description: "تم مسح الرسائل بنجاح :white_check_mark: ",
       footer: {
         text: "DgPro"
       }
@@ -1608,7 +1608,7 @@ client.on('message', message => {
 .addField(' الاعضاء👥 ',` 『${client.users.size}』 `)
 .addField('الرومات📚 ',`『${client.channels.size}』`) 
 .addField(' البنق:rocket: ',`『${Date.now() - message.createdTimestamp}』`) 
-.addField('مصمم  + صاحب البوت ',`!..A7madGamerYT..!#2631`)
+.addField('مصمم  + صاحب البوت ',`! PRO 𓅓 7md🔱🍒#2631`)
 .setColor('#7d2dbe')
   message.channel.sendEmbed(embed);
     }
@@ -1969,7 +1969,7 @@ client.on("message", message => {
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
 **
-صاحب البوت :@!..A7madGamerYT..!#2631
+صاحب البوت :@! PRO 𓅓 7md🔱🍒#2631
 اسم البوت :@DgPro#3339
 **
 █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
@@ -2123,9 +2123,9 @@ client.on("message", message => {
       .setDescription(`
              **__معلومات عن البوت__**
 **
-『مطور وصاحب البوت : @!..A7madGamerYT..!#2631 』
+『مطور وصاحب البوت : @! PRO 𓅓 7md🔱🍒#2631 』
 『لغة البوت : JS 』
-『البوت شغال 24 ساعة على خادم: Herouke 』
+『البوت شغال 24 ساعة على خادم: Heroku 』
 『رابط سيرفر سبورتر البوت : https://discordapp.com/invite/4kgMsfk 』
 『رابط لاضافة البوت : https://discordapp.com/oauth2/authorize/?permissions=268443710&scope=bot&client_id=460106813711319050 』
 **
