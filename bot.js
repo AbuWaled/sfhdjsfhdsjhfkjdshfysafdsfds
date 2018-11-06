@@ -978,28 +978,31 @@ client.on('message', message => {
 
 
 
-client.on("message", message => {
-  var prefix = "+";
-
-          var args = message.content.substring(prefix.length).split(" ");
-          if (message.content.startsWith(prefix + "clear")) {
- if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **ليس لديك صلاحيات**');
-      var msg;
-      msg = parseInt();
+client.on('message', message => {
+var prefix = "+"
+    if (message.content.startsWith(prefix + 'clear')) {
+      if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(`ليس لديك برمشن[*MANAGE_MESSAGES*] `).catch(console.error);
+  message.delete()
+  if(!message.channel.guild) return;
+  let args = message.content.split(" ").slice(1);
+  
+  const messagecount = parseInt(args.join(' '));
+  
+  message.channel.fetchMessages({
+  
+  limit: messagecount
+  
+  }).then(messages => message.channel.bulkDelete(messages));
+  message.channel.sendMessage("", {embed: {
+    title: "``:100: ✅ تــم مسح الشات ``",
+    color: 0x06DF00,
+    footer: {
     
-    message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
-    message.channel.sendMessage("", {embed: {
-      title: "Done | تــم",
-      color: 0x06DF00,
-      description: "تم مسح الرسائل بنجاح :white_check_mark: ",
-      footer: {
-        text: "DgPro"
-      }
+    }
     }}).then(msg => {msg.delete(3000)});
-                        }
-
-   
-});
+  };
+  
+  });
 
  
  
