@@ -2238,7 +2238,6 @@ const now = new Date();
 dateFormat(now, 'dddd, mmmm dS, yyyy');
 const stats2 = ['online', 'Low', 'Medium', 'Insane'];
 const days = millis / 1000 / 60 / 60 / 24;
-         dateFormat(now, 'dddd, mmmm dS, yyyy');
              let time = `${dateFormat(defineduser.createdAt)}`
              var heg;
              if(men) {
