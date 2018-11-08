@@ -2402,7 +2402,6 @@ message.channel.sendFile(canvas.toBuffer())
 }
 
 })	
-});
 
 
 
