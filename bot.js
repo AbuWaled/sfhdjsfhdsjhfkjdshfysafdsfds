@@ -976,7 +976,29 @@ client.on('message', message => {
  
 });
 
+client.on('message', message => {
+    if (message.author.bot) return;
+     if (message.content === prefix + "inv") {
+		 message.channel.send('**تم ارسال رابط البوت في الخاص**');
+            
+	
+		 
 
+
+ message.author.sendMessage(`
+ **
+رابط البوت
+https://discordapp.com/oauth2/authorize/?permissions=268443710&scope=bot&client_id=460106813711319050
+معلومات عن البوت :thinking:
+صيانة دورية :stopwatch: :wrench: 
+24 ساعة :point_up:
+اضافات يومية :link: 
+الدعم الفني للمساعدةة : https://discord.gg/4kgMsfk
+**
+`);
+
+    }
+});
 
 client.on('message', message => {
 var prefix = "+"
@@ -994,7 +1016,7 @@ var prefix = "+"
   
   }).then(messages => message.channel.bulkDelete(messages));
   message.channel.sendMessage("", {embed: {
-    title: "``:100: ✅ تــم مسح الشات ``",
+    title: "`` ✅ تــم مسح الشات ``",
     color: 0x06DF00,
     footer: {
     
