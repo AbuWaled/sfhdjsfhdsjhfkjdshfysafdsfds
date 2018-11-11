@@ -781,26 +781,6 @@ message.channel.send('**لديك 15 ثانيه لتفكك الكلمه **').then
 });
 
 
-	client.on("guildMemberAdd", function(member) {
-    const wc = member.guild.channels.find("name", "✵-「𝑪𝑯𝑨𝑻-سوالف")
-        const embed = new Discord.RichEmbed()
-        .setColor('00FF01')
-        .setAuthor(member.user.tag, member.user.avatarURL)
-        .setFooter("ولــكـــمـ مـنـور سـيـرفـر  ✵ Creative Fox Community ✵")
-        .setTimestamp()
-        return wc.sendEmbed(embed);
-});
-
-
-client.on("guildMemberRemove", function(member) {
-    const wc = member.guild.channels.find("name", "✵-「𝑪𝑯𝑨𝑻-سوالف")
-        const embed = new Discord.RichEmbed()
-        .setColor('FF0000')
-        .setAuthor(member.user.tag, member.user.avatarURL)
-        .setFooter("مع االسلامه نتمنى لك التوفيق ")
-        .setTimestamp()
-        return wc.sendEmbed(embed);
-});
 
 
 
