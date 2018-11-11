@@ -832,11 +832,7 @@ return message.reply("**:white_check_mark: .. تم اعطاء العضو ميو�
     message.guild.member(user).addRole(muteRole).then(() => {
 return message.reply("**:white_check_mark: .. تم اعطاء العضو ميوت كتابي**").catch(console.error);
 });
-  }
 
-};
-
-});
 
 client.on('message', message => {
 
