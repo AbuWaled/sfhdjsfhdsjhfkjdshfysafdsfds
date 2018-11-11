@@ -781,11 +781,62 @@ message.channel.send('**لديك 15 ثانيه لتفكك الكلمه **').then
 });
 
 
+	client.on("guildMemberAdd", function(member) {
+    const wc = member.guild.channels.find("name", "✵-「𝑪𝑯𝑨𝑻-سوالف")
+        const embed = new Discord.RichEmbed()
+        .setColor('00FF01')
+        .setAuthor(member.user.tag, member.user.avatarURL)
+        .setFooter("ولــكـــمـ مـنـور سـيـرفـر  ✵ Creative Fox Community ✵")
+        .setTimestamp()
+        return wc.sendEmbed(embed);
+});
+
+
+client.on("guildMemberRemove", function(member) {
+    const wc = member.guild.channels.find("name", "✵-「𝑪𝑯𝑨𝑻-سوالف")
+        const embed = new Discord.RichEmbed()
+        .setColor('FF0000')
+        .setAuthor(member.user.tag, member.user.avatarURL)
+        .setFooter("مع االسلامه نتمنى لك التوفيق ")
+        .setTimestamp()
+        return wc.sendEmbed(embed);
+});
 
 
 
+client.on("message", message => {
+  if (message.author.bot) return;
 
+  let command = message.content.split(" ")[0];
 
+  if (command === "+mute") {
+        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
+  let user = message.mentions.users.first();
+  let modlog = client.channels.find('name', '✵-「𝑳𝑶𝑮-معلومات');
+  let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
+  if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").catch(console.error);
+  if (message.mentions.users.size < 1) return message.reply('** يجب عليك منشنت شخص اولاً**').catch(console.error);
+
+  const embed = new Discord.RichEmbed()
+    .setColor(0x00AE86)
+    .setTimestamp()
+    .addField('الأستعمال:', 'اسكت/احكي')
+    .addField('تم ميوت:', `${user.username}!${user.discriminator} (${user.id})`)
+    .addField('بواسطة:', `${message.author.username}!${message.author.discriminator}`)
+
+   if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('** لا يوجد لدي برمشن Manage Roles **').catch(console.error);
+
+  if (message.guild.member(user).roles.has(muteRole.id)) {
+return message.reply("**:white_check_mark: .. تم اعطاء العضو ميوت**").catch(console.error);
+} else {
+    message.guild.member(user).addRole(muteRole).then(() => {
+return message.reply("**:white_check_mark: .. تم اعطاء العضو ميوت كتابي**").catch(console.error);
+});
+  }
+
+};
+
+});
 
 client.on('message', message => {
 
@@ -1174,38 +1225,7 @@ var ApL = `${Math.round(client.ping)}`
     } 
 });//////
 	
-	
-	client.on("message", message => {
 
-  if (!message.channel.guild) return;
-    if (message.author.bot) return;
-    let command = message.content.split(" ")[0];
-    if (message.content.startsWith(prefix + 'mute')) {
-        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
-        let user = message.mentions.users.first();
-        let modlog = client.channels.find('name', 'mute-log');
-        let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
-        if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").catch(console.error);
-        if (message.mentions.users.size < 1) return message.reply('** يجب عليك منشنت شخص اولاً**').catch(console.error);
-
-        const embed = new Discord.RichEmbed()
-            .setColor(0x00AE86)
-            .setTimestamp()
-            .addField('الأستعمال:', 'اسكت/احكي')
-            .addField('تم ميوت:', `${user.username}#${user.discriminator} (${user.id})`)
-            .addField('بواسطة:', `${message.author.username}#${message.author.discriminator}`)
-
-        if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('** لا يوجد لدي برمشن Manage Roles **').catch(console.error);
-
-        if (message.guild.member(user).roles.has(muteRole.id)) {
-            return message.reply("**:white_check_mark: .. تم اعطاء العضو ميوت**").catch(console.error);
-        } else {
-            message.guild.member(user).addRole(muteRole).then(() => {
-                return message.reply("**:white_check_mark: .. تم اعطاء العضو ميوت كتابي**").catch(console.error);
-            });
-        }
-
-    };
 
 });
 client.on("message", message => {
@@ -1217,7 +1237,7 @@ client.on("message", message => {
     if (message.content.startsWith(prefix + 'unmute')) {
         if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
         let user = message.mentions.users.first();
-        let modlog = client.channels.find('name', 'mute-log');
+        let modlog = client.channels.find('name', '✵-「𝑳𝑶𝑮-معلومات');
         let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
         if (!muteRole) return message.reply("** لا يوجد لديك رتبه الميوت 'Muted' **").catch(console.error);
         if (message.mentions.users.size < 1) return message.reply('** يجب عليك منشنت شخص اولاً**').catch(console.error);
