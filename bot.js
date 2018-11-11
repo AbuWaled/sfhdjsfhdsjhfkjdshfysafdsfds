@@ -2196,9 +2196,4 @@ message.author.sendEmbed(embed)
     }
 });
 
-
-
-
-
-
 client.login(process.env.BOT_TOKEN);
