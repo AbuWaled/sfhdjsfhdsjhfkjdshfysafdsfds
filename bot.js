@@ -804,35 +804,6 @@ client.on("guildMemberRemove", function(member) {
 
 
 
-client.on("message", message => {
-  if (message.author.bot) return;
-
-  let command = message.content.split(" ")[0];
-
-  if (command === "+mute") {
-        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
-  let user = message.mentions.users.first();
-  let modlog = client.channels.find('name', '✵-「𝑳𝑶𝑮-معلومات');
-  let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
-  if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").catch(console.error);
-  if (message.mentions.users.size < 1) return message.reply('** يجب عليك منشنت شخص اولاً**').catch(console.error);
-
-  const embed = new Discord.RichEmbed()
-    .setColor(0x00AE86)
-    .setTimestamp()
-    .addField('الأستعمال:', 'اسكت/احكي')
-    .addField('تم ميوت:', `${user.username}!${user.discriminator} (${user.id})`)
-    .addField('بواسطة:', `${message.author.username}!${message.author.discriminator}`)
-
-   if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('** لا يوجد لدي برمشن Manage Roles **').catch(console.error);
-
-  if (message.guild.member(user).roles.has(muteRole.id)) {
-return message.reply("**:white_check_mark: .. تم اعطاء العضو ميوت**").catch(console.error);
-} else {
-    message.guild.member(user).addRole(muteRole).then(() => {
-return message.reply("**:white_check_mark: .. تم اعطاء العضو ميوت كتابي**").catch(console.error);
-});
-
 
 client.on('message', message => {
 
@@ -2230,57 +2201,132 @@ client.on('message', message =>{
 });
 
 
-  client.on('message', message => {
-var args = message.content.split(" ").slice(1);    
-if(message.content.startsWith(prefix + 'id')) {
-var year = message.author.createdAt.getFullYear()
-var month = message.author.createdAt.getMonth()
-var day = message.author.createdAt.getDate()
-var men = message.mentions.users.first();  
-let args = message.content.split(' ').slice(1).join(' ');
-if (args == '') {
-var z = message.author;
-}else {
-var z = message.mentions.users.first();
-}
-
-let d = z.createdAt;          
-let n = d.toLocaleString();   
-let x;                       
-let y;                        
-
-if (z.presence.game !== null) {
-y = `${z.presence.game.name}`;
-} else {
-y = "No Playing... |💤.";
-}
-if (z.bot) {
-var w = 'بوت';
-}else {
-var w = 'عضو';
-}
-let embed = new Discord.RichEmbed()
-.setColor("#502faf")
-.addField('🔱| اسمك:',`**<@` + `${z.id}` + `>**`, true)
-.addField('🛡| ايدي:', "**"+ `${z.id}` +"**",true)
-.addField('♨| Playing:','**'+y+'**' , true)
-.addField('🤖| نوع حسابك:',"**"+ w + "**",true)    
-.addField('📛| الكود حق حسابك:',"**#" +  `${z.discriminator}**`,true)
-.addField('**التاريح الذي انشئ فيه حسابك | 📆 **: ' ,year + "-"+ month +"-"+ day)    
-.addField("**تاريخ دخولك للسيرفر| ⌚   :**", message.member.joinedAt.toLocaleString())    
-
-.addField('**⌚ | تاريخ انشاء حسابك الكامل:**', message.author.createdAt.toLocaleString())
-.addField("**اخر رسالة لك | 💬  :**", message.author.lastMessage)            
-
-.setThumbnail(`${z.avatarURL}`)
-.setFooter(message.author.username, message.author.avatarURL)
-
-message.channel.send({embed});
-    if (!message) return message.reply('**ضع المينشان بشكل صحيح  ❌ **').catch(console.error);
-
-}
-
-});
+ client.on('message', message => {
+     if(message.content == ('-id')) {    
+  
+              if (message.channel.type === 'dm') return message.reply('This Command Is Not Avaible In Dm\'s :x:');   
+             var Canvas = module.require('canvas');
+             var jimp = module.require('jimp');
+     
+      const w = ['./ID1.png','./ID2.png','./ID3.png','./ID4.png','./ID5.png'];
+     
+              let Image = Canvas.Image,
+                  canvas = new Canvas(802, 404),
+                  ctx = canvas.getContext('2d');
+              ctx.patternQuality = 'bilinear';
+              ctx.filter = 'bilinear';
+              ctx.antialias = 'subpixel';
+              ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
+              ctx.shadowOffsetY = 2;
+              ctx.shadowBlur = 2;
+              fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
+                  if (err) return console.log(err);
+                  let BG = Canvas.Image;
+                  let ground = new Image;
+                  ground.src = Background;
+                  ctx.drawImage(ground, 0, 0, 802, 404);
+     
+      })
+                                 let user = message.mentions.users.first();
+           var men = message.mentions.users.first();
+              var heg;
+              if(men) {
+                  heg = men
+              } else {
+                  heg = message.author
+              }
+            var mentionned = message.mentions.members.first();
+               var h;
+              if(mentionned) {
+                  h = mentionned
+              } else {
+                  h = message.member
+              }
+              var ment = message.mentions.users.first();
+              var getvalueof;
+              if(ment) {
+                getvalueof = ment;
+              } else {
+                getvalueof = message.author;
+              }//ما خصك ,_,
+                                            let url = getvalueof.displayAvatarURL.endsWith(".webp") ? getvalueof.displayAvatarURL.slice(5, -20) + ".png" : getvalueof.displayAvatarURL;
+                                              jimp.read(url, (err, ava) => {
+                                                  if (err) return console.log(err);
+                                                  ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
+                                                      if (err) return console.log(err);
+                             
+                                                                                            //Avatar
+                                                              let Avatar = Canvas.Image;
+                                                              let ava = new Avatar;
+                                                              ava.src = buf;
+                                                              ctx.beginPath();
+                                                            ctx.drawImage(ava, 335, 3, 160, 169);
+                                                                             //wl
+                                                      ctx.font = '35px Arial Bold';
+                                                      ctx.fontSize = '40px';
+                                                      ctx.fillStyle = "#dadada";
+                                                      ctx.textAlign = "center";
+                                                     
+                             
+                                                      ctx.font = '30px Arial Bold';//Name ,_,
+                                                      ctx.fontSize = '30px';
+                                                      ctx.fillStyle = "#ffffff";
+                                                                              ctx.fillText(`${getvalueof.username}`,655, 170);
+                                                                             
+                                                                         
+                                                           moment.locale('ar-ly');        
+                                             
+                                             
+                                                                     ctx.font = '30px Arial';
+                                                      ctx.fontSize = '30px';
+                                                      ctx.fillStyle = "#ffffff";
+                                                                              ctx.fillText(`${moment(h.joinedAt).fromNow()}`,150, 305);
+                                                               
+                                                               
+                                                                                                      ctx.font = '30px Arial';
+                                                      ctx.fontSize = '30px';
+                                                      ctx.fillStyle = "#ffffff";
+                                                                  ctx.fillText(`${moment(heg.createdTimestamp).fromNow()}`,150, 170); 
+                             
+                                                        let status;
+      if (getvalueof.presence.status === 'online') {
+          status = 'online';
+      } else if (getvalueof.presence.status === 'dnd') {
+          status = 'dnd';
+      } else if (getvalueof.presence.status === 'idle') {
+          status = 'Idle';
+      } else if (getvalueof.presence.status === 'offline') {
+          status = 'Offline';
+      }
+      
+      
+                                           ctx.cont = '35px Arial';
+                                           ctx.fontSize = '30px';
+                                           ctx.filleStyle = '#ffffff'
+                                           ctx.fillText(`${status}`,655,305)
+                   
+                                                                    ctx.font = 'regular 30px Cairo';
+                                                                    ctx.fontSize = '30px';
+                                                                    ctx.fillStyle = '#ffffff'
+                                                          ctx.fillText(`${h.presence.game === null ? "Dont Play" : h.presence.game.name}`,390,390);
+                             
+                                ctx.font = '35px Arial';
+                                                                    ctx.fontSize = '30px';
+                                                                    ctx.fillStyle = '#ffffff'
+                                                                    ctx.fillText(`#${heg.discriminator}`,390,260)
+                             
+                                  ctx.beginPath();
+                                  ctx.stroke();
+                                message.channel.sendFile(canvas.toBuffer());
+                             
+                             
+                           
+                             
+                              })
+                             
+                              })
+  }
+  });
 
 
 
