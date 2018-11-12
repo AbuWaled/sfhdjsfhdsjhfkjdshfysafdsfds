@@ -632,19 +632,6 @@ let prefix = '+'
     }
 });
 
- client.on('message', message => {
- 	var prefix = "-";
- if (message.content.startsWith(prefix + 'tag')) {
-     let args = message.content.split(" ").slice(1);
- if(!args[0]) return message.reply('Write Some Things');  
- 
-     figlet(args.join(" "), (err, data) => {
-               message.channel.send("```" + data + "```")
-            })
- }
- });
-
-
 
 client.on('message' , async (message) => {
  if (message.content.startsWith(prefix + 'say')) {
@@ -794,57 +781,10 @@ message.channel.send('**لديك 15 ثانيه لتفكك الكلمه **').then
 });
 
 
-	client.on("guildMemberAdd", function(member) {
-    const wc = member.guild.channels.find("name", "✵-「𝑪𝑯𝑨𝑻-سوالف")
-        const embed = new Discord.RichEmbed()
-        .setColor('00FF01')
-        .setAuthor(member.user.tag, member.user.avatarURL)
-        .setFooter("ولــكـــمـ مـنـور سـيـرفـر  ✵ Creative Fox Community ✵")
-        .setTimestamp()
-        return wc.sendEmbed(embed);
-});
-
-
-client.on("guildMemberRemove", function(member) {
-    const wc = member.guild.channels.find("name", "✵-「𝑪𝑯𝑨𝑻-سوالف")
-        const embed = new Discord.RichEmbed()
-        .setColor('FF0000')
-        .setAuthor(member.user.tag, member.user.avatarURL)
-        .setFooter("مع االسلامه نتمنى لك التوفيق ")
-        .setTimestamp()
-        return wc.sendEmbed(embed);
-});
 
 
 
-client.on("message", message => {
-  if (message.author.bot) return;
 
-  let command = message.content.split(" ")[0];
-
-  if (command === "+mute") {
-        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
-  let user = message.mentions.users.first();
-  let modlog = client.channels.find('name', '✵-「𝑳𝑶𝑮-معلومات');
-  let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
-  if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").catch(console.error);
-  if (message.mentions.users.size < 1) return message.reply('** يجب عليك منشنت شخص اولاً**').catch(console.error);
-
-  const embed = new Discord.RichEmbed()
-    .setColor(0x00AE86)
-    .setTimestamp()
-    .addField('الأستعمال:', 'اسكت/احكي')
-    .addField('تم ميوت:', `${user.username}!${user.discriminator} (${user.id})`)
-    .addField('بواسطة:', `${message.author.username}!${message.author.discriminator}`)
-
-   if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('** لا يوجد لدي برمشن Manage Roles **').catch(console.error);
-
-  if (message.guild.member(user).roles.has(muteRole.id)) {
-return message.reply("**:white_check_mark: .. تم اعطاء العضو ميوت**").catch(console.error);
-} else {
-    message.guild.member(user).addRole(muteRole).then(() => {
-return message.reply("**:white_check_mark: .. تم اعطاء العضو ميوت كتابي**").catch(console.error);
-});
 
 
 client.on('message', message => {
@@ -1234,8 +1174,40 @@ var ApL = `${Math.round(client.ping)}`
     } 
 });//////
 	
+	
+	client.on("message", message => {
 
+  if (!message.channel.guild) return;
+    if (message.author.bot) return;
+    let command = message.content.split(" ")[0];
+    if (message.content.startsWith(prefix + 'mute')) {
+        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
+        let user = message.mentions.users.first();
+        let modlog = client.channels.find('name', 'mute-log');
+        let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
+        if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").catch(console.error);
+        if (message.mentions.users.size < 1) return message.reply('** يجب عليك منشنت شخص اولاً**').catch(console.error);
 
+        const embed = new Discord.RichEmbed()
+            .setColor(0x00AE86)
+            .setTimestamp()
+            .addField('الأستعمال:', 'اسكت/احكي')
+            .addField('تم ميوت:', `${user.username}#${user.discriminator} (${user.id})`)
+            .addField('بواسطة:', `${message.author.username}#${message.author.discriminator}`)
+
+        if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('** لا يوجد لدي برمشن Manage Roles **').catch(console.error);
+
+        if (message.guild.member(user).roles.has(muteRole.id)) {
+            return message.reply("**:white_check_mark: .. تم اعطاء العضو ميوت**").catch(console.error);
+        } else {
+            message.guild.member(user).addRole(muteRole).then(() => {
+                return message.reply("**:white_check_mark: .. تم اعطاء العضو ميوت كتابي**").catch(console.error);
+            });
+        }
+
+    };
+
+});
 client.on("message", message => {
 
     if (message.author.bot) return;
@@ -1245,7 +1217,7 @@ client.on("message", message => {
     if (message.content.startsWith(prefix + 'unmute')) {
         if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
         let user = message.mentions.users.first();
-        let modlog = client.channels.find('name', '✵-「𝑳𝑶𝑮-معلومات');
+        let modlog = client.channels.find('name', 'mute-log');
         let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
         if (!muteRole) return message.reply("** لا يوجد لديك رتبه الميوت 'Muted' **").catch(console.error);
         if (message.mentions.users.size < 1) return message.reply('** يجب عليك منشنت شخص اولاً**').catch(console.error);
@@ -2210,11 +2182,58 @@ message.author.sendEmbed(embed)
 
 
 
+   client.on('message', message => {
+     if (message.content === "سلام عليكم") {
+      const embed = new Discord.RichEmbed()
+  .setColor("RANDOM")
+  .setDescription(' **وعليكم السلام ورحمة الله وبركاته :heartpulse:** ')
+  message.channel.sendEmbed(embed);
+    }
+});
 
-	
-	
-	
-	
-	
-	
+   client.on('message', message => {
+     if (message.content === "السلام عليكم") {
+      const embed = new Discord.RichEmbed()
+  .setColor("RANDOM")
+  .setDescription(' **وعليكم السلام ورحمة الله وبركاته :heartpulse:** ')
+  message.channel.sendEmbed(embed);
+    }
+});
 
+client.on('message', message =>{
+    if(message.content == "roles"){
+        var roles = '',
+        ros=message.guild.roles.size,
+        role = [];
+        for(let i =0;i<ros;i++){
+            if(message.guild.roles.array()[i].id !== message.guild.id){
+  role.push(message.guild.roles.filter(r => r.position == ros-i).map(r => `${i}- ${r.name}`));  
+        }}
+        message.channel.send(role.join("\n"));
+    }
+});
+
+
+	  client.on('message', message => { 
+  if (message.content === "+id") {
+  let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)  
+.setAuthor(message.author.username)
+.setDescription("**معلومات عن الحــساب**")
+            .setFooter(`! 𝗣𝗥𝗢 𓅓 𝟳𝗠𝗗🔱🍒#2631`)
+.setColor("#9B59B6")
+.addField("**اســـم الحســاب**", `${message.author.username}`)
+.addField('**تاق الحساب الخاص**', message.author.discriminator)
+.addField("**الرقـــم الشـــخصي**", message.author.id)
+.addField('**بــــوت**', message.author.bot)
+.addField("**تاريخ التسجيل**", message.author.createdAt)
+
+message.channel.sendEmbed(embed);
+ }
+});
+
+
+
+
+
+client.login(process.env.BOT_TOKEN);
