@@ -1,11 +1,10 @@
-const Discord = require('discord.js');  
+ const Discord = require('discord.js');  
  const db = require('quick.db');  
  const hastebin = require('hastebin-gen');  
  const client = new Discord.Client();    
  const Canvas = require('canvas');        
  const fs = require("fs"); 
  const getYoutubeID = require('get-youtube-id'); 
- const moment = require("moment");   
  const { Client, Util } = require('discord.js');  
  const UserBlocked = new Set();  
  const jimp = require('jimp');   
@@ -20,8 +19,8 @@ const Discord = require('discord.js');
  const YouTube = require('simple-youtube-api');
  const ytdl = require('ytdl-core');
  const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
-  const dateFormat = require('dateformat'); 
-  const pretty = require('pretty-ms');
+ const dateFormat = require('dateformat'); 
+ const pretty = require('pretty-ms');
 
   client.on('message', async msg => {
     if (msg.author.bot) return undefined;
