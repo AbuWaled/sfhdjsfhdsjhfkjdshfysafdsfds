@@ -475,8 +475,7 @@ collector7.on('collect', r => {
 		msg.edit(embed).then(msg.delete(5000));
       });
 });
-})
-}
+});
 });
 
 
