@@ -1001,24 +1001,16 @@ https://discordapp.com/oauth2/authorize/?permissions=268443710&scope=bot&client_
 
 
 
-  client.on('message', message => {
- 	 var prefix = "+";
-   if (message.author.bot) return;
-   if (!message.content.startsWith(prefix)) return;
+ client.on('message', message => {
+ 	var prefix = "+";
+ if (message.content.startsWith(prefix + 'tag')) {
+     let args = message.content.split(" ").slice(1);
+ if(!args[0]) return message.reply('Write Some Things');  
  
-   let command = message.content.split(" ")[0];
-   command = command.slice(prefix.length);
- 
-   let args = message.content.split(" ").slice(1);
-   
-  
- 
- if (command == "za5") {
-     let say = new Discord.RichEmbed()
-         .setTitle('Text emboss :')
-    message.channel.send(`**#** \n ${zalgo(args.join(' '))}`);
-   }
- 
+     figlet(args.join(" "), (err, data) => {
+               message.channel.send("```" + data + "```")
+            })
+ }
  });
 
 
