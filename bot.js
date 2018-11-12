@@ -1,4 +1,3 @@
- const client = new Discord.Client();  
 const Discord = require('discord.js');
 const { Client, Util } = require('discord.js');
 const client = new Discord.Client();
@@ -6,6 +5,7 @@ const { PREFIX, GOOGLE_API_KEY } = require('./config');
 const prefix = '+'
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
+ const zalgo = require('zalgolize');   
 const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
 
