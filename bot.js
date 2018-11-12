@@ -2210,14 +2210,7 @@ message.author.sendEmbed(embed)
 
 
 
-   client.on('message', message => {
-     if (message.content === "سلام عليكم") {
-      const embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
-  .setDescription(' **وعليكم السلام ورحمة الله وبركاته :heartpulse:** ')
-  message.channel.sendEmbed(embed);
-    }
-});
+
 	
 	
 	
