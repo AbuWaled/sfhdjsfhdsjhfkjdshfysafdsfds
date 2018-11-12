@@ -995,10 +995,33 @@ https://discordapp.com/oauth2/authorize/?permissions=268443710&scope=bot&client_
 اضافات يومية :link: 
 الدعم الفني للمساعدةة : https://discord.gg/4kgMsfk
 **
-`);
-
+`)
     }
 });
+
+
+
+  client.on('message', message => {
+ 	 var prefix = "+";
+   if (message.author.bot) return;
+   if (!message.content.startsWith(prefix)) return;
+ 
+   let command = message.content.split(" ")[0];
+   command = command.slice(prefix.length);
+ 
+   let args = message.content.split(" ").slice(1);
+   
+  
+ 
+ if (command == "za5") {
+     let say = new Discord.RichEmbed()
+         .setTitle('Text emboss :')
+    message.channel.send(`**#** \n ${zalgo(args.join(' '))}`);
+   }
+ 
+ });
+
+
 
 client.on('message', message => {
 var prefix = "+"
