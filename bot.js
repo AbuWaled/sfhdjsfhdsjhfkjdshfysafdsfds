@@ -2217,10 +2217,11 @@ message.author.sendEmbed(embed)
   .setDescription(' **وعليكم السلام ورحمة الله وبركاته :heartpulse:** ')
   message.channel.sendEmbed(embed);
     }
-
-
-
-
-
 });
+	
+	
+	
+	
+	
+	
 client.login(process.env.BOT_TOKEN);
