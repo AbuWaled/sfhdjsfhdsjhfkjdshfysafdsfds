@@ -1964,23 +1964,24 @@ client.on('message', message => {
   var prefix = "+";
  if (message.content.startsWith(prefix + 'help')) {
      let pages = [
- 	`=-=-=-=-=-=** 🌍 Public Commands - اوامر عامة 🌍 =-=-=-=-=-=
-     ✴ +id ======> To Show Your ID | ايدي حسابك
-     ✴ +ping ====> Ping Of Bot | بنج حك البوت
-     ✴ +info =====> Information Of The Bot | معلومات البوت
-     ✴ +server ==> Information Of The Server | معلومات السيرفر
-     ✴ +cal =====> To Calculate | اله لحاسبة 
-     ✴ +rooms ===> Show Rooms Of Server | اضهار الرومات الي في السيرفر
-     ✴ +roles ===> Show Roles Of The Server | اضهار الرانكات
-     ✴ +emojis ==> Emoji Of Server | ايموجيات السيرفر   
-     ✴ +say =====> The Bot Say Any Thing | تكرار اي شي كتبتو
-     ✴ +ser-av ===> To Show Image Of Server | لاضهار صورة السيرف 
-     ✴ +embed ===> To Embed | لتكرار اي شي كتبتو بطريقة حلوة
-     ✴ +avatar ==> Your Avatar | صورتك الشخصية
+ 	`=-=-=-=-=-=** 🌍 Public Commands - اوامر عامة 🌍 **=-=-=-=-=-=
+**     ❖ +id ======> To Show Your ID | ايدي حسابك
+     ❖ +ping ====> Ping Of Bot | بنج حك البوت
+     ❖ +info =====> Information Of The Bot | معلومات البوت
+     ❖ +server ==> Information Of The Server | معلومات السيرفر
+     ❖ +cal =====> To Calculate | اله لحاسبة 
+     ❖ +rooms ===> Show Rooms Of Server | اضهار الرومات الي في السيرفر
+     ❖ +roles ===> Show Roles Of The Server | اضهار الرانكات
+     ❖ +emojis ==> Emoji Of Server | ايموجيات السيرفر   
+     ❖ +say =====> The Bot Say Any Thing | تكرار اي شي كتبتو
+     ❖ +ser-av ===> To Show Image Of Server | لاضهار صورة السيرف 
+     ❖ +embed ===> To Embed | لتكرار اي شي كتبتو بطريقة حلوة
+     ❖ +avatar ==> Your Avatar |صورتك الشخصية
+**
      ===========================================================
        React With ▶ To See Admins Commands`,
- 	`=-=-=-=-=-= 🔧  Admin Commands - اوامر ادارية 🔧 =-=-=-=-=-=
-     ❖ +move @user => Move User To Your Room Voice | لسحب الشخص الى روومك
+ 	`=-=-=-=-=-= **🔧  Admin Commands - اوامر ادارية 🔧** =-=-=-=-=-=
+     **❖ +move @user => Move User To Your Room Voice | لسحب الشخص الى روومك
      ❖ +mvall => Move All To Your Room Voice | لسحب الجميع الي روومك
      ❖ +bc => Broadcast | رسالة جماعية الى كل اعضاء السيرفر
      ❖ +role @user <rank> => Give User Rank | لأعطاء رتبة لعضو معين
@@ -1998,34 +1999,37 @@ client.on('message', message => {
      ❖ +kv @user => Voice Kick | يطرد شخص من الرووم
      ❖ +vonline => Create Channel Voice Online | يسوي رووم فويس اونلاين
      ❖ +bans  ==> ban list | الاشخاص الي تبندو
-      ===========================================================
+     ** 
+     ===========================================================
        React With ▶ To See Games Commands`,
- 	`=-=-=-=-=-=   Games Commands + Music + Quran - الاغاني + القرأن + اوامر الالعاب  =-=-=-=-=-=
-     ❖ +xo @user => Game XO | لعب اكس او
+ 	`=-=-=-=-=-= **  Games Commands - اوامر الالعاب  ** =-=-=-=-=-=
+**   ❖ +xo @user => Game XO | لعب اكس او
      ❖ +rps => Rock & Paper & Scissors | لعبة حجر ورقة مقص
      ❖ +slots => Game Of Fruits | لعبة الفواكه
-     ❖ +marry @user => لعبة الزواج
+     ❖ +زواج @user => لعبة الزواج
      ❖ +speed => لعبة سرعة كتابة 
      ❖ +لعبة فكك <= فكك
      ❖ +لعبة عواصم <= عواصم
      ❖ +البوت يعطيك نصائح <= هل تعلم
      ❖ +skin => Ur Mc Skin
      ❖ +لو خيروك => Funny Game Yay
+**
       ===========================================================
 	  React With ▶ To See Music Commands`,
-	`=-=-=-=-=-=  :musical_note: Music Commands  -  اوامر الاغاني :musical_note:  =-=-=-=-=-=
-	 ❖ +p => For Start Music | لتشغيل الاغاني
+	`=-=-=-=-=-=  ** :musical_note: Music Commands  -  اوامر الاغاني :musical_note:**  =-=-=-=-=-=
+**	 ❖ +p => For Start Music | لتشغيل الاغاني
 	 ❖ +s => For Skip Music | لتخطي الاغنية
 	 ❖ +stop => For Stop Music | لأيقاف الاغنية
      ❖ +vol => For Reduce or Raise The Sound | لخفض او رفع الصوت
      ❖ +np => For See Name Music | لكي ترى اسم الاغنية
      ❖ +q => To See The Music In The Queue | لكي ترا الاغاني التي في قائمة الانتظار
      ❖ +pa => For Pause The Music | لأيقاف الاغنية مؤقتنا
-	 ❖ +r => For Play Back The Music agin after its end | لأعادة تشغيل الاغنية بعد توقفها
+     ❖ +r => For Play Back The Music agin after its end | لأعادة تشغيل الاغنية بعد توقفها
+**
 	 ===========================================================
        React With ▶ To See Quran Commands`,
-	`=-=-=-=-=-=  :kaaba: Quran Commands  -  اوامر القرأن :kaaba:  =-=-=-=-=-=
-     ❖+قران => For Start Quran | لتشغيل القرأن
+	`=-=-=-=-=-= ** :kaaba: Quran Commands  -  اوامر القرأن :kaaba:**  =-=-=-=-=-=
+   **  ❖+قران => For Start Quran | لتشغيل القرأن
 	 ❖:regional_indicator_a: القرآن كاملاً ماهر المعيقلي
      ❖:regional_indicator_b: سورة البقرة كاملة للشيخ مشاري العفاسي
      ❖:regional_indicator_c: سورة الكهف كاملة بصوت مشارى بن راشد العفاسي
@@ -2033,6 +2037,7 @@ client.on('message', message => {
      ❖:regional_indicator_d: القرآن كاملاً عبدالباسط عبدالصمد
      ❖:regional_indicator_e: القرآن كاملاً ياسر الدوسري
      ❖:regional_indicator_f: سورة الواقعه بصوت الشيخ مشاري بن راشد العفاسي
+
  	    DgPro**`]
  	let page = 1;
  
