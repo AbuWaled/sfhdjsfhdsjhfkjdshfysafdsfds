@@ -632,6 +632,19 @@ let prefix = '+'
     }
 });
 
+ client.on('message', message => {
+ 	var prefix = "-";
+ if (message.content.startsWith(prefix + 'tag')) {
+     let args = message.content.split(" ").slice(1);
+ if(!args[0]) return message.reply('Write Some Things');  
+ 
+     figlet(args.join(" "), (err, data) => {
+               message.channel.send("```" + data + "```")
+            })
+ }
+ });
+
+
 
 client.on('message' , async (message) => {
  if (message.content.startsWith(prefix + 'say')) {
@@ -1223,7 +1236,6 @@ var ApL = `${Math.round(client.ping)}`
 	
 
 
-});
 client.on("message", message => {
 
     if (message.author.bot) return;
