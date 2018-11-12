@@ -108,22 +108,6 @@ ${videos.map(video2 => `[**${++index}**] **${video2.title}**`).join('\n')}`)
     .setDescription(`سيتم اعاده تشغيل الفديو :**${serverQueue.songs[0].title}**`)
     msg.channel.send({embed: embedNP})
      return handleVideo(video, msg, msg.member.voiceChannel);
-	 
-	 
-	} else if (command === 'loop' || command === 'lo') {
-            if (!serverQueue) return msg.channel.send("**``Loop``يجب تشغيل اغنيه لي تفعيل خاصيه الـ | :x:**")
-            if (serverQueue && serverQueue.playing) {
-                if (!message.member.voiceChannel) return err(message,`يجب ان تكون في روم صوتي`);
-                if (message.guild.members.get(message.member.id).voiceChannel.id !== message.guild.members.get(client.user.id).voiceChannel.id) return err(message , `يجب ان تكون في نفس روم البوت | :x:`)
-                if (serverQueue.loop == false) {
-                    serverQueue.loop = true;
-                    e(message, `**${serverQueue.songs[0].title}**, تم تفعيل الوب علي`)
-                } else if (serverQueue.loop == true) {
-                    serverQueue.loop = false;
-                    e(message, `تم الغاء الوب  **${serverQueue.songs[0].title}**`)
-                };
-            }
-        }
  
     } else if (command === `queue`) {
         if (!serverQueue) return msg.channel.send('لا يوجد شيء حالي ف العمل.');
