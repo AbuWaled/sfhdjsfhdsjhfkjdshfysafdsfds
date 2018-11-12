@@ -412,7 +412,6 @@ collector3.on('collect', r => {
 		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
 		msg.edit(embed).then(msg.delete(5000));
       });
-});
 collector4.on('collect', r => {
 	if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
 		collector1.stop();
