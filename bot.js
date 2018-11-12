@@ -2228,18 +2228,7 @@ message.author.sendEmbed(embed)
     }
 });
 
-client.on('message', message =>{
-    if(message.content == "roles"){
-        var roles = '',
-        ros=message.guild.roles.size,
-        role = [];
-        for(let i =0;i<ros;i++){
-            if(message.guild.roles.array()[i].id !== message.guild.id){
-  role.push(message.guild.roles.filter(r => r.position == ros-i).map(r => `${i}- ${r.name}`));  
-        }}
-        message.channel.send(role.join("\n"));
-    }
-});
+
 
 
 client.login(process.env.BOT_TOKEN);
