@@ -1,4 +1,5 @@
 const ytdl = require("ytdl-core");
+const client = new Discord.Client();
 const { Client, Util } = require('discord.js');
 const getYoutubeID = require('get-youtube-id');
 const prefix = '+'
