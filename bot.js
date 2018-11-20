@@ -466,7 +466,7 @@ let embed = new Discord.RichEmbed()
      .setAuthor(message.author.username, message.author.avatarURL)
      .setDescription('📬 تم ارسال الرسالة الى صاحب البوت بنجاح')
      .setThumbnail(message.author.avatarURL)
-     .setFooter("By :! PRO 𓅓 7md🔱🍒#2631")
+     .setFooter("By :! ᴸᶜ 𓅓 𝟳𝗠𝗗🌠👑#2631")
                                                 
 
 message.channel.send(embed);
@@ -493,7 +493,7 @@ client.on('message', message => {
             .addField('``My ID``' , `[ ${client.user.id} ]` , true)
 			      .addField('``My Prefix``' , `[ + ]` , true)
 			      .addField('``My Language``' , `[ Java Script ]` , true)
-			      .setFooter('By | ! PRO 𓅓 7md🔱🍒#2631')
+			      .setFooter('By | ! ᴸᶜ 𓅓 𝟳𝗠𝗗🌠👑#2631')
     })
 }
 });
@@ -1716,7 +1716,7 @@ client.on('message', message => {
 .addField(' الاعضاء👥 ',` 『${client.users.size}』 `)
 .addField('الرومات📚 ',`『${client.channels.size}』`) 
 .addField(' البنق:rocket: ',`『${Date.now() - message.createdTimestamp}』`) 
-.addField('مصمم  + صاحب البوت ',`! PRO 𓅓 7md🔱🍒#2631`)
+.addField('مصمم  + صاحب البوت ',`! ᴸᶜ 𓅓 𝟳𝗠𝗗🌠👑#2631`)
 .setColor('#7d2dbe')
   message.channel.sendEmbed(embed);
     }
