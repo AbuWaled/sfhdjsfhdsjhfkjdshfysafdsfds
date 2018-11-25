@@ -718,93 +718,6 @@ return;
 
 
 
-     client.on("guildMemberAdd", member => {
-      const welcomer = client.channels.get("505643202053931011");
-      if(!welcomer) return;
-      if(welcomer) {
-         moment.locale('ar-ly');
-         var h = member.user;
-        let heroo = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setThumbnail(h.avatarURL)
-        .setAuthor(h.username,h.avatarURL)
-        .addField(': تاريخ دخولك الدسكورد',`${moment(member.user.createdAt).format('D/M/YYYY h:mm a')} **\n** \`${moment(member.user.createdAt).fromNow()}\``,true)            
-         .addField(': تاريخ دخولك السيرفر',`${moment(member.joinedAt).format('D/M/YYYY h:mm a ')} \n\`\`${moment(member.joinedAt).startOf(' ').fromNow()}\`\``, true)      
-         .setFooter(`${h.tag}`,"https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif")
-     welcomer.send({embed:heroo});          
-      
-      const w = ['./img/w1.png',
-      './img/w2.png',
-      './img/w3.png',
-      './img/w4.png',
-      './img/w5.png',
-      './img/w6.png',
-      './img/w7.png',
-      './img/w8.png',
-      './img/w9.png',
-      './img/w10.png',
-      './img/w11.png',
-      './img/w12.png',
-      './img/w13.png',
-      './img/w14.png',
-      './img/w15.png',
-      './img/w16.png',
-      './img/w17.png',
-      './img/w18.png',];
-      
-              let Image = Canvas.Image,
-                  canvas = new Canvas(401, 202),
-                  ctx = canvas.getContext('2d');
-              ctx.patternQuality = 'bilinear';
-              ctx.filter = 'bilinear';
-              ctx.antialias = 'subpixel';
-              ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
-              ctx.shadowOffsetY = 2;
-              ctx.shadowBlur = 2;
-              fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
-                  if (err) return console.log(err)
-                  let BG = Canvas.Image;
-                  let ground = new Image;
-                  ground.src = Background;
-                  ctx.drawImage(ground, 0, 0, 401, 202);
-      
-      })
-      
-                      let url = member.user.displayAvatarURL.endsWith(".webp") ? member.user.displayAvatarURL.slice(5, -20) + ".gif" : member.user.displayAvatarURL;
-                      jimp.read(url, (err, ava) => {
-                          if (err) return console.log(err);
-                          ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
-                              if (err) return console.log(err);
-      
-                              //AVATARً
-                              let Avatar = Canvas.Image;
-                              let ava = new Avatar;
-                              ava.src = buf;
-                              ctx.drawImage(ava, 152, 27, 95, 95);
-                              
-                                                      //wl
-                              ctx.font = '20px Arial Bold';
-                              ctx.fontSize = '20px';
-                              ctx.fillStyle = "#FFFFFF";
-                              ctx.textAlign = "center";
-                                                         ctx.fillText(member.user.username, 200, 190);
-                              
-                              //NAMEً
-                              ctx.font = '19px Arial';
-                              ctx.fontSize = '18px';
-                              ctx.fillStyle = "#FFFFFF";
-                              ctx.textAlign = "center";
-      ctx.fillText(`Welcome To Mal Shop ♥ !!`
-                              , 200, 155);
-    welcomer.sendFile(canvas.toBuffer())
-      
-      
-      
-      })
-      })
-      
-      }
-      });
 
 
       client.on('guildDelete', guild => {
@@ -1282,19 +1195,7 @@ message.channel.send(image)
 
 
 
-      client.on('message', message => {
-   if(message.content.startsWith(prefix + 'inv')) {
-            if(!message.channel.guild) return;
-        let embed = new Discord.RichEmbed()
-        .setAuthor(` ${message.author.username} `, message.author.avatarURL)      
-        .setTitle(`:small_orange_diamond:Click Here `)
-        .setURL(`https://discordapp.com/oauth2/authorize/?permissions=268443710&scope=bot&client_id=460106813711319050`)
-        .setThumbnail("https://images-ext-2.discordapp.net/external/dgcnt05ZbaN52KTCKjEYt5MtV7JqJz2Yxn8GCPFeOjw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/410835593451405312/c7735abad2cab67cf68bd854685914ca.png?width=80&height=80")
-        .addField(':small_blue_diamond:By', "<@" + message.author.id + ">")        
-     message.channel.sendEmbed(embed);
-       }
-     
-   });
+
 
 
 
@@ -1578,43 +1479,7 @@ client.on('message', message => {
 
 
 
-   client.on('message', message => {
-  if (message.author.x5bz) return;
-  if (!message.content.startsWith(prefix)) return;
 
-  let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-
-  let args = message.content.split(" ").slice(1);
-
-  if (command == "ban") {
-               if(!message.channel.guild) return message.reply('** This command only for servers**');
-         
-  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
-  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
-  let user = message.mentions.users.first();
-  let reason = message.content.split(" ").slice(2).join(" ");
-  /*let b5bzlog = client.channels.find("name", "5bz-log");
-  if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");*/
-  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
-  if(!reason) return message.reply ("**اكتب سبب الطرد**");
-  if (!message.guild.member(user)
-  .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالي**");
-
-  message.guild.member(user).ban(7, user);
-
-  const banembed = new Discord.RichEmbed()
-  .setAuthor(`BANNED!`, user.displayAvatarURL)
-  .setColor("RANDOM")
-  .setTimestamp()
-  .addField("**المستخدم**",  '**[ ' + `${user.tag}` + ' ]**')
-  .addField("**من قبل**", '**[ ' + `${message.author.tag}` + ' ]**')
-  .addField("**السبب**", '**[ ' + `${reason}` + ' ]**')
-  message.channel.send({
-    embed : banembed
-  })
-}
-});
 
 
 
