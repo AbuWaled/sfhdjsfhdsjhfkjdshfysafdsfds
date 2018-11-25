@@ -2,6 +2,8 @@ const Discord = require('discord.js');
 
 const Util = require('discord.js');
 
+const moment = require("moment");
+
 const getYoutubeID = require('get-youtube-id');
 
 const fetchVideoInfo = require('youtube-info');
@@ -796,7 +798,7 @@ client.on('message', function(message) {
     } else if(message.content.startsWith(prefix + "setgamelt")) {
 				        if(message.author.id !== myID) return;
             if(!args) return message.reply('اكتب الحالة اللي تريدها.');
-        client.user.setActivity(args, {type:'LISTENING'});
+        client.user.setActivity(args, {type:'7MD KING DISCORD'});
         message.channel.send(':white_check_mark: Done!').then(msg => {
            msg.delete(5000);
           message.delete(5000);
@@ -1504,39 +1506,120 @@ client.on('message',  message => {
 
 
 
-client.on("message", function(message) {
-    let toBan = message.mentions.users.first();
-    let toReason = message.content.split(" ").slice(2).join(" ");
-    let toEmbed = new Discord.RichEmbed()
-   if(message.content.startsWith(prefix + "ban")) {
-       if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply("انت لا تمتلك الصلاحية");
-       if(!toBan) return message.reply("يجب عليك وضع منيشان للعضو");
-       if(toBan.id === ("447121312960479242")) return message.reply("انت لا تستطيع اعطاء لي بان");
-       if(toBan === message.member.guild.owner) return message.reply("انت لا تستطيع اعطاء صاحب السيرفر باند");
-       if(toBan.bannable) return message.reply("**# - I cannot ban someone with a higher role than me!**");
-       if(!toReason) return message.reply("يجب عليك وضع السبب!!")
-       if(toBan.id === message.author.id) return message.reply("انت لا تستطيع اعطاء نفسك باند")
-       if(!message.guild.member(toBan).bannable) return message.reply("انت لا تستطيع اعطاء باند لشخص لديه رتبة اعلى منك")
-       let toEmbed;
-       toEmbed = new Discord.RichEmbed()
-       .setTitle("You have been banned from a server!")
-       .setThumbnail(toBan.avatarURL)
-       .addField("**# - Server:**",message.guild.name,true)
-       .addField("**# - Reason:**",toReason,true)
-       .addField("**# - Banned By:**",message.author,true)
-       if(message.member.hasPermission("BAN_MEMBERS")) return (
-           toBan.sendMessage({embed: toEmbed}).then(() => message.guild.member(toBan).ban({reason: toReason})).then(() => message.channel.send(`**# Done! I banned: ${toBan}**`))
-       );
-       
-   }
+    client.on('message', message => {
+		var prefix = "+"
+  if (message.author.codes) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "ban") {
+               if(!message.channel.guild) return message.reply('** This command only for servers**');
+         
+  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**انت لا تملك الصلاحيات المطلوبه**");
+  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**ليس لدي صلاحية الحظر**");
+  let user = message.mentions.users.first();
+  
+  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
+  if (!message.guild.member(user)
+  .bannable) return message.reply("**يجب ان تكون رتبة البوت اعلي من رتبه الشخص المراد تبنيدة**");
+
+
+  message.guild.member(user).ban(7, user);
+
+message.channel.send(`**:white_check_mark: ${user.tag} banned from the server ! :airplane: **  `)
+
+}
+});
+
+
+
+  
+client.on("message",function(message) {
+	var prefix = "+"
+    if(message.content.startsWith(prefix + 'uptime')) {
+        let uptime = client.uptime;
+
+    let days = 0;
+    let hours = 0;
+    let minutes = 0;
+    let seconds = 0;
+    let notCompleted = true;
+
+    while (notCompleted) {
+
+        if (uptime >= 8.64e+7) {
+
+            days++;
+            uptime -= 8.64e+7;
+
+        } else if (uptime >= 3.6e+6) {
+
+            hours++;
+            uptime -= 3.6e+6;
+
+        } else if (uptime >= 60000) {
+
+            minutes++;
+            uptime -= 60000;
+
+        } else if (uptime >= 1000) {
+            seconds++;
+            uptime -= 1000;
+
+        }
+
+        if (uptime < 1000)  notCompleted = false;
+
+    }
+    
+let v1 = new Discord.RichEmbed()
+  v1.setTimestamp(new Date())
+  v1.setColor("RED")
+  v1.setDescription('***__ Collecting Data __***')
+  v1.setFooter("#DgPro") 
+let norelden = new Discord.RichEmbed()
+.setColor('#9b59b6')
+.setTimestamp(new Date())
+.setThumbnail(client.user.avatarURL)
+.addField("UpTime :",`**[** **Days:** \`${days}\` **Hours:** \`${hours}\` **Minutes:** \`${minutes}\` **Seconds:** \`${seconds}\` **]**`,true)
+.setFooter("DgPro");
+  message.channel.send({embed:v1}).then(m => m.edit({embed:norelden}),5000);
+}
 });
 
 
  
 
+client.on('message', message => {
+var prefix = "+"
+        if(message.content.startsWith(prefix + 'hypixel')) {
+            let args = message.content.split(' ').slice(1).join(' ');
+            if (!args) return message.channel.send("**رجأء ضع اسمك في ماين كرافت. ❌**");
+            var link = (`https://hypixel.net/player/${args}`);
+            message.channel.send(link);
+        }
+    });
 
+client.on("ready", () => {
+  function lol() {
+    client.guilds.get('498226120215494667').roles.find("name", "♛『Rainbow 』♛").setColor("RANDOM");
+  };
+  setInterval(lol, 1600);
+});
 
-
+client.on('message', message => {
+var prefix = "$"
+        if(message.content.startsWith(prefix + 'hypixel')) {
+            let args = message.content.split(' ').slice(1).join(' ');
+            if (!args) return message.channel.send("**رجأء ضع اسمك في ماين كرافت. ❌**");
+            var link = (`https://hypixel.net/player/${args}`);
+            message.channel.send(link);
+        }
+    });
   
 
 
