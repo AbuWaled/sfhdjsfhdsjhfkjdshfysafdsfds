@@ -719,7 +719,7 @@ return;
 
 
 client.on("guildMemberAdd", member => {
-      //const welcomer = client.channels.get("512674548382957573");
+      const welcomer = client.channels.get("505643202053931011");
       let welcomer = member.guild.channels.find("name","✵-「p-chat")
       if(!welcomer) return;
       if(welcomer) {
