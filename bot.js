@@ -2098,9 +2098,7 @@ client.on('message', message => {
      if (message.content === "+help") {
       const embed = new Discord.RichEmbed()
   .setColor("RANDOM")
-  .setDescription('**__اهلا وسهلا بكم تم ارسال  الاومر في الخاص__**
-
-')
+  .setDescription('**اهلا وسهلا بكم تم ارسال  الاومر في الخاص**')
   message.channel.sendEmbed(embed);
     }
 });
