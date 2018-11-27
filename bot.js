@@ -2116,7 +2116,74 @@ message.author.sendEmbed(embed)
 }); 
 
 
+client.on('message', message => {
+            if (message.content.startsWith("+help")) {
+     let embed = new Discord.RichEmbed()
+.addField(`               **__اهلا وسهلا بكم في قائمة المساعدة ل افضل بوت عربي__**
 
+              **__يجب عليك اختيار الذي تحتاج ان تعرفه__**
+**
+『لعرض الاوامر الاداريه : +help-admin』
+『لعرض الاومر العامه : +help-public』
+『لعرض اوامر الالعاب : +help-games』
+『لعرض اوامر الاغاني : +help-music』
+『لعرض اوامر القرأن : +help-quran』
+『لعرض معلومات تخص البوت : +help-info』
+**`
+)
+.setColor('#7d2dbe')
+  message.channel.sendEmbed(embed);
+    }
+});
+
+
+client.on('message', message => {
+            if (message.content.startsWith("+help-puplic")) {
+     let embed = new Discord.RichEmbed()
+.addField('تم ارسال الاوامر بالخاص')
+.setColor('#7d2dbe')
+  message.channel.sendEmbed(embed);
+    }
+});
+
+client.on('message', message => {
+            if (message.content.startsWith("+help-games")) {
+     let embed = new Discord.RichEmbed()
+.addField('تم ارسال الاوامر بالخاص')
+.setColor('#7d2dbe')
+  message.channel.sendEmbed(embed);
+    }
+});
+
+
+
+client.on('message', message => {
+            if (message.content.startsWith("+help-admin")) {
+     let embed = new Discord.RichEmbed()
+.addField('تم ارسال الاوامر بالخاص')
+.setColor('#7d2dbe')
+  message.channel.sendEmbed(embed);
+    }
+});
+
+
+client.on('message', message => {
+            if (message.content.startsWith("+help-music")) {
+     let embed = new Discord.RichEmbed()
+.addField('تم ارسال الاوامر بالخاص')
+.setColor('#7d2dbe')
+  message.channel.sendEmbed(embed);
+    }
+});
+
+client.on('message', message => {
+            if (message.content.startsWith("+help-quran")) {
+     let embed = new Discord.RichEmbed()
+.addField('تم ارسال الاوامر بالخاص')
+.setColor('#7d2dbe')
+  message.channel.sendEmbed(embed);
+    }
+});
 client.on('message', message => {
             if (message.content.startsWith("اسلام عليكم")) {
      let embed = new Discord.RichEmbed()
