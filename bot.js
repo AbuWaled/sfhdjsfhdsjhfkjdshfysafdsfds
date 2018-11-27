@@ -2090,7 +2090,30 @@ client.on('message', message => {
 }
 });
 
+client.on("message", message => {
+ if (message.content === "+help") {
+  const embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+               **__اهلا وسهلا بكم في قائمة المساعدة ل افضل بوت عربي__**
 
+              **__يجب عليك اختيار الذي تحتاج ان تعرفه__**
+**
+『لعرض الاوامر الاداريه : +help-admin』
+『لعرض الاومر العامه : +help-public』
+『لعرض اوامر الالعاب : +help-games』
+『لعرض اوامر الاغاني : +help-music』
+『لعرض اوامر القرأن : +help-quran』
+『لعرض معلومات تخص البوت : +help-info』
+**
+`)
+
+
+message.author.sendEmbed(embed)
+
+}
+}); 
 
 
 
@@ -2104,124 +2127,176 @@ client.on('message', message => {
 });
 
 
- client.on('message', message => {
-  var prefix = "+";
- if (message.content.startsWith(prefix + 'help')) {
-     let pages = [
- 	`=-=-=-=-=-=** 🌍 Public Commands - اوامر عامة 🌍 **=-=-=-=-=-=
-**     ❖ +id ======> To Show Your ID | ايدي حسابك
-     ❖ +ping ====> Ping Of Bot | بنج حك البوت
-     ❖ +info =====> Information Of The Bot | معلومات البوت
-     ❖ +server ==> Information Of The Server | معلومات السيرفر
-     ❖ +cal =====> To Calculate | اله لحاسبة 
-     ❖ +rooms ===> Show Rooms Of Server | اضهار الرومات الي في السيرفر
-     ❖ +roles ===> Show Roles Of The Server | اضهار الرانكات
-     ❖ +emojis ==> Emoji Of Server | ايموجيات السيرفر   
-     ❖ +say =====> The Bot Say Any Thing | تكرار اي شي كتبتو
-     ❖ +ser-av ===> To Show Image Of Server | لاضهار صورة السيرف 
-     ❖ +embed ===> To Embed | لتكرار اي شي كتبتو بطريقة حلوة
-     ❖ +avatar ==> Your Avatar |صورتك الشخصية
+
+client.on("message", message => {
+ if (message.content === "+help-admin") {
+  const embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
 **
-     ===========================================================
-       React With ▶ To See Admins Commands`,
- 	`=-=-=-=-=-= **🔧  Admin Commands - اوامر ادارية 🔧** =-=-=-=-=-=
-     **❖ +move @user => Move User To Your Room Voice | لسحب الشخص الى روومك
-     ❖ +mvall => Move All To Your Room Voice | لسحب الجميع الي روومك
-     ❖ +bc => Broadcast | رسالة جماعية الى كل اعضاء السيرفر
-     ❖ +role @user <rank> => Give User Rank | لأعطاء رتبة لعضو معين
-     ❖ +roleremove @user <rank> => remove Rank From User | لازالة الرتبة من شخص معين
-     ❖ +role all <rank> => Give All Rank | لأعطاء رتبة للجميع
-     ❖ +role humans <rank> => Give Humans Rank | لأعطاء رتبة للاشخاص فقط
-     ❖ +role bots <rank> => Give Bots Rank | لأعطاء رتبة لجميع البوتات
-     ❖ +clear => Clear Chat | مسح الشات
-     ❖ +mute @user <reason> => Mute User | اعطاء العضو ميوت لازم رتبة <Muted>
-     ❖ +unmute @user => Unmute User | لفك الميوت عن الشخص 
-     ❖ +kick @user <reason> => Kick User From Server | طرد الشخص من السيرفر
-     ❖ +ban @user <reason> => Ban User From Server | حضر الشخص من السيرفر
-     ❖ +mct => Mute Channel | تقفيل الشات
-     ❖ +unmct => Unmute Channel | فتح الشات
-     ❖ +kv @user => Voice Kick | يطرد شخص من الرووم
-     ❖ +vonline => Create Channel Voice Online | يسوي رووم فويس اونلاين
-     ❖ +bans  ==> ban list | الاشخاص الي تبندو
-     ** 
-     ===========================================================
-       React With ▶ To See Games Commands`,
- 	`=-=-=-=-=-= **  Games Commands - اوامر الالعاب  ** =-=-=-=-=-=
-**   ❖ +xo @user => Game XO | لعب اكس او
-     ❖ +rps => Rock & Paper & Scissors | لعبة حجر ورقة مقص
-     ❖ +slots => Game Of Fruits | لعبة الفواكه
-     ❖ +زواج @user => لعبة الزواج
-     ❖ +speed => لعبة سرعة كتابة 
-     ❖ +لعبة فكك <= فكك
-     ❖ +لعبة عواصم <= عواصم
-     ❖ +البوت يعطيك نصائح <= هل تعلم
-     ❖ +skin => Ur Mc Skin
-     ❖ +لو خيروك => Funny Game Yay
+صاحب البوت :@! PRO 𓅓 7md🔱🍒#2631
+اسم البوت :@DgPro#3339
 **
-      ===========================================================
-	  React With ▶ To See Music Commands`,
-	`=-=-=-=-=-=  ** :musical_note: Music Commands  -  اوامر الاغاني :musical_note:**  =-=-=-=-=-=
-**	 ❖ +p => For Start Music | لتشغيل الاغاني
-	 ❖ +s => For Skip Music | لتخطي الاغنية
-	 ❖ +stop => For Stop Music | لأيقاف الاغنية
-     ❖ +vol => For Reduce or Raise The Sound | لخفض او رفع الصوت
-     ❖ +np => For See Name Music | لكي ترى اسم الاغنية
-     ❖ +q => To See The Music In The Queue | لكي ترا الاغاني التي في قائمة الانتظار
-     ❖ +pa => For Pause The Music | لأيقاف الاغنية مؤقتنا
-     ❖ +r => For Play Back The Music agin after its end | لأعادة تشغيل الاغنية بعد توقفها
+█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+█░░╦─╦╔╗╦─╔╗╔╗╔╦╗╔╗░░█
+█░░║║║╠─║─║─║║║║║╠─░░█
+█░░╚╩╝╚╝╚╝╚╝╚╝╩─╩╚╝░░█
+█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
+
+        **__اوامر ادارية__**
 **
-	 ===========================================================
-       React With ▶ To See Quran Commands`,
-	`=-=-=-=-=-= ** :kaaba: Quran Commands  -  اوامر القرأن :kaaba:**  =-=-=-=-=-=
-   **  ❖+قران => For Start Quran | لتشغيل القرأن
-	 ❖:regional_indicator_a: القرآن كاملاً ماهر المعيقلي
-     ❖:regional_indicator_b: سورة البقرة كاملة للشيخ مشاري العفاسي
-     ❖:regional_indicator_c: سورة الكهف كاملة بصوت مشارى بن راشد العفاسي
-     ❖:stop_button: لإيقاف القرآن الكريم
-     ❖:regional_indicator_d: القرآن كاملاً عبدالباسط عبدالصمد
-     ❖:regional_indicator_e: القرآن كاملاً ياسر الدوسري
-     ❖:regional_indicator_f: سورة الواقعه بصوت الشيخ مشاري بن راشد العفاسي
- 	    DgPro**`]
- 	let page = 1;
- 
-     let embed = new Discord.RichEmbed()
-     .setColor('RANDOM')
-     .setFooter(`Page ${page} of ${pages.length}`)
-     .setDescription(pages[page-1])
- 
-     message.channel.sendEmbed(embed).then(msg => {
- 
-         msg.react('◀').then( r => {
-             msg.react('▶')
- 
- 
-         const backwardsFilter = (reaction, user) => reaction.emoji.name === '◀' && user.id === message.author.id;
-         const forwardsFilter = (reaction, user) => reaction.emoji.name === '▶' && user.id === message.author.id;
- 
- 
-         const backwards = msg.createReactionCollector(backwardsFilter, { time: 20000});
-         const forwards = msg.createReactionCollector(forwardsFilter, { time: 20000});
- 
- 
- 
-         backwards.on('collect', r => {
-             if (page === 1) return;
-             page--;
-             embed.setDescription(pages[page-1]);
-             embed.setFooter(`Page ${page} of ${pages.length}`);
-             msg.edit(embed)
-         })
-         forwards.on('collect', r => {
-             if (page === pages.length) return;
-             page++;
-             embed.setDescription(pages[page-1]);
-             embed.setFooter(`Page ${page} of ${pages.length}`);
-             msg.edit(embed)
-         })
-         })
-     })
-     }
- });
+『+kick /لطرد العضو :outbox_tray:』
+『+ban / لحظر العضو :no_entry:』
+『+bc /برودكاست:mega:』
+『+mute / لاسكات العضو:mute:』
+『+unmute /  لفك الميوت عن العضو :loud_sound:』
+『+mct / لقفل الشات :no_entry:』
+『+unmct / لفتح الشات:on:』
+『+role @someone [role]』
+『+roleremove @someone [role]』
+『+roleremove all , bots , humans [role]』
+『+role all , bots , humans [role]』
+**
+`)
+
+
+message.author.sendEmbed(embed)
+
+}
+}); 
+
+client.on("message", message => {
+ if (message.content === "+help-public") {
+  const embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+        ***__:earth_africa: اوامر عامه:earth_africa: __***
+**
+『+id / معلومات عن حسابك:bust_in_silhouette:』
+『+rooms / يعرض لك الرومات وعددها』
+『+server / معلومات عن السيرفر:bar_chart:』
+『+ser-av / يعرض صوره السيرفر :camera:』
+『+avatar / يعرض صورتك او صوره شخص:camera:』
+『+date / يعرض لك التاريخ:calendar:』
+『+ping / يعرض لك سرعه اتصال البوت:rocket:』
+『+support / سيرفر الدعم القني و المساعده』
+『+inv / اضافه البوت:sparkles:』
+『+member / عدد الاعضاء :busts_in_silhouette:』
+『+bot / لكي ترا البوت في كم سيرفر + كم عضو + روم:robot:』
+『+contact/ لارسال رسالة لصاحب البوت』
+『+emojilist / يعرض لك ايموجي السيرفر :yum:』
+『+info / لكي ترا معلومات عن البوت :robot:』
+『+say / لجعل البوت يصنع بوت باسمك + بصورتك ويكرر كلامك ويحذف البوتات خلال ثواني:robot:』
+『+user / لعرض معلومات حسابك او حساب شخص اخر :mens: 』
+**
+`)
+
+
+message.author.sendEmbed(embed)
+
+}
+}); 
+
+client.on("message", message => {
+ if (message.content === "+help-music") {
+  const embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+        **__:musical_note: الاغاني:musical_note:__**
+**
+『+p / لتشغيل الاغنية :musical_note:』
+『+s / لتخطي الاغنية:musical_note:』
+『+stop / لايقاف الاغنية:musical_note:』
+『+vol / لاخفاض او رفع الصوت:musical_note:』
+『+np / لعرض اسم الاغنية:musical_note:』
+『+q / لعرض الاغانية التي في قيد الانتظار:musical_note:』
+『+pa / لايقاف الاغنية مؤقتاّ:musical_note:』
+『+r / لاعادة تشغيل الاغنية مرة اخرى بعد انتهائها:musical_note:』
+**
+`)
+
+
+message.author.sendEmbed(embed)
+
+}
+}); 
+
+
+client.on("message", message => {
+ if (message.content === "+help-quran") {
+  const embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+      **:kaaba: اوامر بوت القرآن الكريم :kaaba:**
+**
+:regional_indicator_a: القرآن كاملاً ماهر المعيقلي
+:regional_indicator_b: سورة البقرة كاملة للشيخ مشاري العفاسي
+:regional_indicator_c: سورة الكهف كاملة بصوت مشارى بن راشد العفاسي
+:stop_button: لإيقاف القرآن الكريم
+:regional_indicator_d: القرآن كاملاً عبدالباسط عبدالصمد
+:regional_indicator_e: القرآن كاملاً ياسر الدوسري
+:regional_indicator_f: سورة الواقعه بصوت الشيخ مشاري بن راشد العفاسي
+**
+`)
+
+
+message.author.sendEmbed(embed)
+
+}
+}); 
+
+client.on("message", message => {
+ if (message.content === "+help-games") {
+  const embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+        **__:video_game:الالعاب:video_game:__**
+ **       
+『:video_game:+انجاز:video_game:』
+『:video_game:+هكر:video_game:』
+『:video_game:+زواج:video_game:』
+『:video_game:+فكك:video_game:』
+『:video_game:+حب:video_game:』
+『:video_game:+لو خيروك:video_game:』
+『:video_game:+خواطر:video_game:』
+『:video_game:+عقاب:video_game:』
+**
+   
+        
+`)
+
+
+message.author.sendEmbed(embed)
+
+}
+}); 
+
+client.on("message", message => {
+ if (message.content === "+help-info") {
+  const embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+             **__معلومات عن البوت__**
+**
+『مطور وصاحب البوت : @! PRO 𓅓 7md🔱🍒#2631 』
+『لغة البوت : JS 』
+『البوت شغال 24 ساعة على خادم: Heroku 』
+『رابط سيرفر سبورتر البوت : https://discordapp.com/invite/4kgMsfk 』
+『رابط لاضافة البوت : https://discordapp.com/oauth2/authorize/?permissions=268443710&scope=bot&client_id=460106813711319050 』
+**
+`)
+
+
+message.author.sendEmbed(embed)
+
+}
+}); 
 
    client.on('message', message => {
      if (message.content === "هلا") {
