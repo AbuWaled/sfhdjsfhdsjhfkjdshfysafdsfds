@@ -2093,19 +2093,17 @@ client.on('message', message => {
 
 
 
-client.on('message', message => {
-            if (message.content.startsWith("help")) {
-     let embed = new Discord.RichEmbed()
-.addField(`
-**__اهلا وسهلا بكم في قائمة المساعدة ل افضل بوت عربي__**
-تم ارسال الاومر في الخاص
-`)
-.setColor('#7d2dbe')
+
+   client.on('message', message => {
+     if (message.content === "+help") {
+      const embed = new Discord.RichEmbed()
+  .setColor("RANDOM")
+  .setDescription('**__اهلا وسهلا بكم تم ارسال  الاومر في الخاص__**
+
+')
   message.channel.sendEmbed(embed);
     }
 });
-
-
 
 client.on('message', message => {
             if (message.content.startsWith("اسلام عليكم")) {
@@ -2216,7 +2214,7 @@ message.author.sendEmbed(embed)
 
 
 client.on("message", message => {
- if (message.content === "+help-quran") {
+ if (message.content === "+help") {
   const embed = new Discord.RichEmbed() 
       .setColor("#ffff00")
       .setThumbnail(message.author.avatarURL)
@@ -2240,7 +2238,7 @@ message.author.sendEmbed(embed)
 }); 
 
 client.on("message", message => {
- if (message.content === "+help-games") {
+ if (message.content === "+help") {
   const embed = new Discord.RichEmbed() 
       .setColor("#ffff00")
       .setThumbnail(message.author.avatarURL)
@@ -2267,7 +2265,7 @@ message.author.sendEmbed(embed)
 }); 
 
 client.on("message", message => {
- if (message.content === "+help-info") {
+ if (message.content === "+help") {
   const embed = new Discord.RichEmbed() 
       .setColor("#ffff00")
       .setThumbnail(message.author.avatarURL)
