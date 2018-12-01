@@ -6,7 +6,7 @@ const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const Eris = require("eris");
 const youtube = new YouTube(GOOGLE_API_KEY);
-var prefix('+')
+const prefix = '+'
 const queue = new Map();
 
 
