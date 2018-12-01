@@ -1,68 +1,26 @@
 const Discord = require('discord.js');
-const { Client, Util } = require('discord.js');
-const client = new Discord.Client();
-const { PREFIX, GOOGLE_API_KEY } = require('./config');
+
+const Util = require('discord.js');
+
+const getYoutubeID = require('get-youtube-id');
+
+const fetchVideoInfo = require('youtube-info');
+
 const YouTube = require('simple-youtube-api');
-const ytdl = require('ytdl-core');
-const Eris = require("eris");
-const youtube = new YouTube(GOOGLE_API_KEY);
-const prefix = '+'
+
+const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
+
 const queue = new Map();
 
+const ytdl = require('ytdl-core');
 
-const bot = new Discord.Client({disableEveryone: true});
-const fs = require('fs'); // بكج
-let credits = JSON.parse(fs.readFileSync("./credits.json", "utf8"));
+const fs = require('fs');
 
-bot.on('message', async message => { // نظام الكريدت
-  if(message.author.bot) return; // اذا كان المرسل بوت م يرد عليه
-    
+const client = new Discord.Client({disableEveryone: true});
 
-    if(!credits[message.author.id]) { // اذا م كان معاه كريدت
-      credits[message.author.id] = {
-        credits: 200 // عدد الكريدت الاساسي
-      };
-    }
-
-let cred = credits[message.author.id].credits  // تعريف للكريدتس الخاصة بالعضو
-
-let creditsAmt = Math.floor(Math.random() * 20) + 1; // رقم عشوائي
-    let baseAmt = Math.floor(Math.random() * 20) + 1;  // رقم عشوائي
-
-    console.log(`${creditsAmt};${baseAmt}`); 
-
-    if(creditsAmt == baseAmt) {  // اذا كان الرقمين يتطابقان مع بعضهما
-      credits[message.author.id] = {
-        credits: cred + creditsAmt  
-      };
-    }
-
-    fs.writeFile('./credits.json', JSON.stringify(credits), (err) => {  // الكتابة في ملف
-      if(err) console.log(err)
-    });
-
-let men = message.mentions.users.first();
-
-    if(message.content.startsWith("-^credits")) {
-if(!men) { // اذا لم يكن هناك منشن
-      message.reply(` ** your :credit_card: balance is  ${cred}  . ** `).then(m => m.delete(10000));
-    }
-
-    if(men) { // اذا وجد منشن
-
-    if(!credits[men.id]) {
-       credits[men.id] = {credits: 200}
-    }
-
-    fs.writeFile('./credits.json', JSON.stringify(credits), (err) => {if(err) console.log(err)})
-
-    let c = credits[men.id].credits
-
-    message.channel.send(` ** ${men} your :credit_card: balance is  ${c} credits ** `)
-
-    }
-    }
-
+const prefix = "+";
+/////////////////////////
+////////////////////////
 
 
 client.on('message', async msg => { 
@@ -2171,7 +2129,6 @@ client.on("message", message => {
 █░░║║║╠─║─║─║║║║║╠─░░█
 █░░╚╩╝╚╝╚╝╚╝╚╝╩─╩╚╝░░█
 █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
-
         **__اوامر ادارية__**
 **
 『+kick /لطرد العضو :outbox_tray:』
