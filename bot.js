@@ -1602,22 +1602,7 @@ var prefix = "+"
         }
     });
 
-client.on("ready", () => {
-  function lol() {
-    client.guilds.get('498226120215494667').roles.find("name", "♛『Rainbow 』♛").setColor("RANDOM");
-  };
-  setInterval(lol, 1600);
-});
 
-client.on('message', message => {
-var prefix = "$"
-        if(message.content.startsWith(prefix + 'hypixel')) {
-            let args = message.content.split(' ').slice(1).join(' ');
-            if (!args) return message.channel.send("**رجأء ضع اسمك في ماين كرافت. ❌**");
-            var link = (`https://hypixel.net/player/${args}`);
-            message.channel.send(link);
-        }
-    });
   
 
 
