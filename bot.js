@@ -110,7 +110,7 @@ let embed = new Discord.RichEmbed()
      .setAuthor(message.author.username, message.author.avatarURL)
      .setDescription('📬 تم ارسال الرسالة الى صاحب البوت بنجاح')
      .setThumbnail(message.author.avatarURL)
-     .setFooter("By :! ᴸᶜ 𓅓 𝟳𝗠𝗗🌠👑#2631")
+     .setFooter("By :<@444126346676011028>")
                                                 
 
 message.channel.send(embed);
@@ -137,7 +137,7 @@ client.on('message', message => {
             .addField('``My ID``' , `[ ${client.user.id} ]` , true)
 			      .addField('``My Prefix``' , `[ + ]` , true)
 			      .addField('``My Language``' , `[ Java Script ]` , true)
-			      .setFooter('By | ! ᴸᶜ 𓅓 𝟳𝗠𝗗🌠👑#2631')
+			      .setFooter('By | <@444126346676011028>')
     })
 }
 });
@@ -1380,7 +1380,7 @@ client.on('message', message => {
 .addField(' الاعضاء👥 ',` 『${client.users.size}』 `)
 .addField('الرومات📚 ',`『${client.channels.size}』`) 
 .addField(' البنق:rocket: ',`『${Date.now() - message.createdTimestamp}』`) 
-.addField('مصمم  + صاحب البوت ',`! ᴸᶜ 𓅓 𝟳𝗠𝗗🌠👑#2631`)
+.addField('مصمم  + صاحب البوت ',`<@444126346676011028>`)
 .setColor('#7d2dbe')
   message.channel.sendEmbed(embed);
     }
@@ -1458,7 +1458,7 @@ if (message.content.startsWith(prefix + 'عقاب')) {
  var embed = new Discord.RichEmbed()
  .setColor('RANDOM')
   .setThumbnail(message.author.avatarURL) 
-.addField('لعبة عقاب .. DgPro-Gaming ..' ,
+.addField('لعبة عقاب .. DgPro-Gaming . <@444126346676011028> .' ,
  `${Za7f[Math.floor(Math.random() * Za7f.length)]}`)
  message.channel.sendEmbed(embed);
  console.log('Game: عقاب , Send By: ' + message.author.username)
@@ -1500,7 +1500,7 @@ client.on('message', message => {
  .setColor('RANDOM')
 
   .setThumbnail(message.author.avatarURL) 
-.addField('لعبه خواطر ..DgPro-Gaming ..' ,
+.addField('لعبه خواطر ..DgPro-Gaming .<@444126346676011028>.' ,
  `${secreT[Math.floor(Math.random() * secreT.length)]}`)
  message.channel.sendEmbed(embed);
  console.log('Game: خواطر , Send By: ' + message.author.username)
@@ -1516,7 +1516,7 @@ client.on('message', message => {
  var embed = new Discord.RichEmbed()
  .setColor('RANDOM')
   .setThumbnail(message.author.avatarURL) 
-.addField('لعبة حب ..DgPro-Gaming ..' ,
+.addField('لعبة حب ..DgPro-Gaming .<@444126346676011028>.' ,
  `${Love[Math.floor(Math.random() * Love.length)]}`)
  message.channel.sendEmbed(embed);
  console.log('Game: حب , Send By: ' + message.author.username)
@@ -1640,7 +1640,7 @@ const Sra7a = [
 if (message.content.startsWith(prefix + 'صراحة')) {
     if(!message.channel.guild) return message.reply('** This command only for servers **');
  var client= new Discord.RichEmbed()
- .setTitle("لعبة صراحة ..DgPro-Gaming ..")
+ .setTitle("لعبة صراحة ..DgPro-Gaming .<@444126346676011028>.")
  .setColor('RANDOM')
  .setDescription(`${Sra7a[Math.floor(Math.random() * Sra7a.length)]}`)
  .setImage("https://cdn.discordapp.com/attachments/371269161470525444/384103927060234242/125.png")
@@ -1715,8 +1715,8 @@ client.on("message", message => {
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
 **
-صاحب البوت :@! PRO 𓅓 7md🔱🍒#2631
-اسم البوت :@DgPro#3339
+صاحب البوت :<@444126346676011028>
+اسم البوت :<@460106813711319050>
 **
 █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
 █░░╦─╦╔╗╦─╔╗╔╗╔╦╗╔╗░░█
@@ -1863,7 +1863,7 @@ client.on("message", message => {
       .setDescription(`
              **__معلومات عن البوت__**
 **
-『مطور وصاحب البوت : @! PRO 𓅓 7md🔱🍒#2631 』
+『مطور وصاحب البوت : <@444126346676011028> 』
 『لغة البوت : JS 』
 『البوت شغال 24 ساعة على خادم: Heroku 』
 『رابط سيرفر سبورتر البوت : https://discordapp.com/invite/4kgMsfk 』
@@ -1954,7 +1954,7 @@ client.on('message', message =>{
 .setThumbnail(message.author.avatarURL)  
 .setAuthor(message.author.username)
 .setDescription("**معلومات عن الحــساب**")
-            .setFooter(`! 𝗣𝗥𝗢 𓅓 𝟳𝗠𝗗🔱🍒#2631`)
+            .setFooter(`<@444126346676011028>`)
 .setColor("#9B59B6")
 .addField("**اســـم الحســاب**", `${message.author.username}`)
 .addField('**تاق الحساب الخاص**', message.author.discriminator)
