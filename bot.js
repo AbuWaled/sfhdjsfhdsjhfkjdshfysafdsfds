@@ -24,12 +24,28 @@ const prefix = "+";
 
 
 
+client.on('ready', function(){    
+    var ms = 20000 ;    
+    var setGame = ['+help','+inv','! 𓅓 𝟳𝗠𝗗🌠👑'];    
+    var i = -1;    
+    var j = 0;    
+    setInterval(function (){    
+        if( i == -1 ){    
+j = 1;    
+       }    
+        if( i == (setGame.length)-1 ){    
+            j = -1;    
+      }    
+       i = i+j;    
+        client.user.setGame(setGame[i],`https://www.twitch.tv/dggamingbot);    
+}, ms);    
+    
+});
 
 
 
 
 client.on('ready', () => {
-client.user.setGame(`+help | +inv ${client.guilds.size} Servers  `,"https://www.twitch.tv/dggamingbot")
   console.log(`Logged in as ${client.user.tag}!`);
   console.log('')
   console.log('')
