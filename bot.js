@@ -25,8 +25,8 @@ const prefix = "+";
 
 
 client.on('ready', function(){    
-    var ms = 20000 ;    
-    var setGame = ['+help','+inv','! 𓅓 𝟳𝗠𝗗🌠👑'];    
+    var ms = 10000 ;    
+    var setGame = ['+help ${client.guilds.size} Servers','+inv ${client.guilds.size} Servers','! 𓅓 𝟳𝗠𝗗🌠👑 ${client.guilds.size} Servers'];    
     var i = -1;    
     var j = 0;    
     setInterval(function (){    
@@ -37,7 +37,7 @@ j = 1;
             j = -1;    
       }    
        i = i+j;    
-        client.user.setGame(setGame[i],`https://www.twitch.tv/dggamingbot);    
+          client.user.setGame("https://www.twitch.tv/dggamingbot")   
 }, ms);    
     
 });
