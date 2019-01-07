@@ -59,16 +59,16 @@ client.on('message', message => {
 const myID = "444126346676011028";
   if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('+bcadmin')){
+if (message.content.startsWith('+Founder')){
 message.channel.sendMessage('جار ارسال الرسالة |✅')
 client.users.forEach(m =>{
 var bc = new
 Discord.RichEmbed()
 .setColor('RANDOM')
 .setTitle('Broadcast')
-.addField('Server', message.guild.name)
-.addField('Sender', message.author.username)
-.addField('Message', args)
+.addField('السيرفر:', message.guild.name)
+.addField('المرسل:', message.author.username)
+.addField('الرسالة:', args)
 m.send({ embed: bc })
 })
 }
