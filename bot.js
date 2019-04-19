@@ -1349,8 +1349,9 @@ client.on('message' , async (message) => {
         'لا تزعجني',
         'ايش تبي ',
         'هلا',
-        'كيفك'
-        'تمنشن بوت ياغبي؟',
+        'كيفك',
+        'سم؟',
+        'تمنشن بوت ياغبي؟'
     ]
     
     let fetched = responses[Math.floor(Math.random() * responses.length)];
