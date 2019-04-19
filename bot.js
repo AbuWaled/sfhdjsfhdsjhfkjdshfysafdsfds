@@ -586,8 +586,7 @@ client.on("guildMemberAdd", member => {
   member.createDM().then(function (channel) {
   return channel.send(`:rose:  ولكم نورت السيرفر:rose: 
 :crown:اسم العضو  ${member}:crown:  
-انت العضو رقم ${member.guild.memberCount} 
-قنات صاحب البوت : https://www.youtube.com/channel/UC9uRyt4O2NNiVEmjEG_Rz1A/videos?view_as=subscriber `) 
+انت العضو رقم ${member.guild.memberCount}  `) 
 }).catch(console.error)
 });
 
@@ -660,7 +659,7 @@ client.on('message', message => {
          .addField(':earth_asia: الدوله',message.guild.region)
          .addField(':ribbon: ايموجي السيرفر',`${message.guild.emojis.size}`,true)
          .addField(':construction: مستوى التحقق',`${verificationLevels[message.guild.verificationLevel]}`,true)
-         .addField(':closed_lock_with_key: الرتب  '+message.guild.roles.size+' ','Type `.roles` To See The Server Roles!')
+         .addField(':closed_lock_with_key: الرتب  '+message.guild.roles.size+' ','<@444126346676011028>')
          message.channel.send({embed:xNiTRoZ});
      }
     });
@@ -1350,8 +1349,7 @@ client.on('message' , async (message) => {
         'لا تزعجني',
         'ايش تبي ',
         'هلا',
-        'كيفك',
-        'سم؟',
+        'كيفك'
         'تمنشن بوت ياغبي؟'
     ]
     
@@ -1934,18 +1932,6 @@ message.author.sendEmbed(embed)
     }
 });
 
-client.on('message', message =>{
-    if(message.content == "roles"){
-        var roles = '',
-        ros=message.guild.roles.size,
-        role = [];
-        for(let i =0;i<ros;i++){
-            if(message.guild.roles.array()[i].id !== message.guild.id){
-  role.push(message.guild.roles.filter(r => r.position == ros-i).map(r => `${i}- ${r.name}`));  
-        }}
-        message.channel.send(role.join("\n"));
-    }
-});
 
 
 	  client.on('message', message => { 
