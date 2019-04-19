@@ -1735,6 +1735,7 @@ client.on("message", message => {
 『+roleremove @someone [role]』
 『+roleremove all , bots , humans [role]』
 『+role all , bots , humans [role]』
+『+bans / لرؤية عدد الاشخاص الذين تم تبنيدهم من السيرفر』
 **
 `)
 
@@ -1768,6 +1769,10 @@ client.on("message", message => {
 『+info / لكي ترا معلومات عن البوت :robot:』
 『+say / لجعل البوت يصنع بوت باسمك + بصورتك ويكرر كلامك ويحذف البوتات خلال ثواني:robot:』
 『+user / لعرض معلومات حسابك او حساب شخص اخر :mens: 』
+『+report / لعمل ابلاغ على شخص "يجب عمل روم ب اسم 
+report":x: 』
+『+sug / لعمل اقتراح للسيرفر " ملاحظة يجب عمل روم ب اسم
+suggests 』
 **
 `)
 
