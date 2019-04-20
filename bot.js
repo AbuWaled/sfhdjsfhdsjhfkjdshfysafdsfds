@@ -1736,6 +1736,10 @@ client.on("message", message => {
 『+roleremove all , bots , humans [role]』
 『+role all , bots , humans [role]』
 『+bans / لرؤية عدد الاشخاص الذين تم تبنيدهم من السيرفر』
+『+moveall / لسحب الكل الى رومك الصوتي』
+『+move / لسحب شخص محدد الى الروم الخاص بك』
+『+ccolors / لصنع الوان بعدد محدد』
+『+vonline / لصنع روم فويس اونلاين يظهر الاشخاص الي بالرومات الصوتية』
 **
 `)
 
