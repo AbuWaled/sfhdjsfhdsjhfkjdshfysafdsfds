@@ -29,7 +29,7 @@ const prefix = "+";
 
 
 client.on('ready', () => {
-client.user.setStatus("dnd");
+client.user.setStatus("idle");
 client.user.setGame(`+help | +inv ${client.guilds.size} Servers  `,"https://www.twitch.tv/dggamingbot")
   console.log(`Logged in as ${client.user.tag}!`);
   console.log('')
