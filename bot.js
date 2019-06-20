@@ -14,6 +14,8 @@ const queue = new Map();
 
 const ytdl = require('ytdl-core');
 
+const db = require('quick.db') // لا تنسى تحمل البكج ذا | npm i quick.db@7.0.0-b22 | او ضيف ذا السطر لملف البكج اذا كان خادمك مو وندز او لينكس : "quick.db": "^7.0.0-b22",
+
 const fs = require('fs');
 
 const client = new Discord.Client({disableEveryone: true});
@@ -35,9 +37,7 @@ message.channel.startTyping();
 
 });
 
-const Discord = require('discord.js')
-const client = new Discord.Client();
-const db = require('quick.db') // لا تنسى تحمل البكج ذا | npm i quick.db@7.0.0-b22 | او ضيف ذا السطر لملف البكج اذا كان خادمك مو وندز او لينكس : "quick.db": "^7.0.0-b22",
+
 const prefix = "+"
 client.on('message', msg => {
       let params = msg.content.slice(prefix.length).trim().split(/ +/g);
