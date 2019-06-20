@@ -32,7 +32,7 @@ message.channel.startTyping();
  message.channel.stopTyping();
  }, Math.random() * (1 - 3) + 1 * 1000);
 
- }
+
 });
 
 const Discord = require('discord.js')
