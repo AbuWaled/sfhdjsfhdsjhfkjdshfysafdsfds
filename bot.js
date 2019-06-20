@@ -91,7 +91,7 @@ client.on('message', msg => {
   }
 })
 
-client.log('token')
+
 
 client.on('ready', () => {
 client.user.setStatus("idle");
