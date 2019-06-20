@@ -15,7 +15,7 @@
     "express": "^4.16.3",
     "finalhandler": "^1.1.1",
     "fortnite": "^3.0.0",
-    "quick.db": "^7.0.0-b9",
+    "quick.db": "^7.0.0-b22",
     "fs": "^0.0.2",
     "goo.gl": "^0.1.4",
     "math-expression-evaluator": "^1.2.17",
