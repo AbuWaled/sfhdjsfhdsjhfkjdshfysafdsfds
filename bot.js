@@ -38,7 +38,7 @@ message.channel.startTyping();
 });
 
 
-const prefix = "+"
+
 client.on('message', msg => {
       let params = msg.content.slice(prefix.length).trim().split(/ +/g);
   if(msg.author.client) return
