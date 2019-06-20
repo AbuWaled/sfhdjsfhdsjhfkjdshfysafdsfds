@@ -38,7 +38,7 @@ message.channel.startTyping();
 const Discord = require('discord.js')
 const client = new Discord.Client();
 const db = require('quick.db') // لا تنسى تحمل البكج ذا | npm i quick.db@7.0.0-b22 | او ضيف ذا السطر لملف البكج اذا كان خادمك مو وندز او لينكس : "quick.db": "^7.0.0-b22",
-const prefix = ""
+const prefix = "+"
 client.on('message', msg => {
       let params = msg.content.slice(prefix.length).trim().split(/ +/g);
   if(msg.author.client) return
