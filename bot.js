@@ -35,7 +35,63 @@ message.channel.startTyping();
  }
 });
 
+const Discord = require('discord.js')
+const client = new Discord.Client();
+const db = require('quick.db') // لا تنسى تحمل البكج ذا | npm i quick.db@7.0.0-b22 | او ضيف ذا السطر لملف البكج اذا كان خادمك مو وندز او لينكس : "quick.db": "^7.0.0-b22",
+const prefix = "og"
+client.on('message', msg => {
+      let params = msg.content.slice(prefix.length).trim().split(/ +/g);
+  if(msg.author.client) return
+  if(msg.content.startsWith(prefix + 'addbadwords')) {
+    let words = db.get(`badwords.${msg.guild.id}.words`)
+    if(words === null || words === undefined) {
+      db.set(`badwords.${msg.guild.id}.words`, [])
+    }
+    if(!params[1]) return msg.channel.send(`**اكتب السبة ي حلو**`)
+    let args = params.slice(1).join(' ')
+    if(words.includes(args)) return msg.channel.send(`**السبة محفوظة من قبل**`)
+    db.push(`badwords.${msg.guild.id}.words`, args)
+    msg.channel.send(`**تم اضافة [${args}]**`.replace(args.slice(args.length - 2) , "##" ))
+  }
+})
 
+
+client.on('message', msg => {
+  if(msg.author.id === client.user.id) return
+  let words = db.get(`badwords.${msg.guild.id}.words`)
+  if(words === null || words === undefined) return
+  if(words.some(w => msg.content.includes(w)) ) {
+    msg.delete()
+  }
+})
+client.on('message', msg => {
+  if(msg.author.client) return
+  if(msg.content.startsWith(prefix + 'badwordslist')) {
+    let words = db.get(`badwords.${msg.guild.id}.words`)
+    if(words === null || words === undefined) return msg.channel.send(`**القائمة فارغة**`)
+    let list = "";
+    let cnt = 0
+    words.forEach(w => {
+      cnt += 1
+      list = `${list} \n${cnt} - ||${w}||`
+    })
+    let embed = new Discord.RichEmbed()
+    .setTitle(`bad words list`)
+    .setDescription(`${list}`)
+    msg.channel.send(embed)
+  }
+})
+client.on('message', msg => {
+  if(msg.author.client) return
+  if(msg.content.startsWith(prefix + 'badwordsreset')) {
+    let words = db.get(`badwords.${msg.guild.id}.words`)
+    if(words === null || words === undefined) return msg.channel.send(`**لا توجد كلمات لكي تحذفها**`)
+    db.delete(`badwords.${msg.guild.id}.words`)
+    msg.channel.send(`**تم حذف كل الكلمات بنجاح**`)
+  }
+})
+
+client.log('token')
 
 client.on('ready', () => {
 client.user.setStatus("idle");
