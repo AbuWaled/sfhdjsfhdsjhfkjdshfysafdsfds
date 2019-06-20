@@ -29,7 +29,7 @@ const prefix = "+";
 client.on("message", message => {
 
 
-message.channel.startTyping(+);
+message.channel.startTyping();
  setTimeout(() => {
  message.channel.stopTyping();
  }, Math.random() * (1 - 3) + 1 * 1000);
