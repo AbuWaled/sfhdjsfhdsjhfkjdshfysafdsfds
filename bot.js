@@ -56,40 +56,7 @@ client.on('message', msg => {
 })
 
 
-client.on('message', msg => {
-  if(msg.author.id === client.user.id) return
-  let words = db.get(`badwords.${msg.guild.id}.words`)
-  if(words === null || words === undefined) return
-  if(words.some(w => msg.content.includes(w)) ) {
-    msg.delete()
-  }
-})
-client.on('message', msg => {
-  if(msg.author.client) return
-  if(msg.content.startsWith(prefix + 'badwordslist')) {
-    let words = db.get(`badwords.${msg.guild.id}.words`)
-    if(words === null || words === undefined) return msg.channel.send(`**القائمة فارغة**`)
-    let list = "";
-    let cnt = 0
-    words.forEach(w => {
-      cnt += 1
-      list = `${list} \n${cnt} - ||${w}||`
-    })
-    let embed = new Discord.RichEmbed()
-    .setTitle(`bad words list`)
-    .setDescription(`${list}`)
-    msg.channel.send(embed)
-  }
-})
-client.on('message', msg => {
-  if(msg.author.client) return
-  if(msg.content.startsWith(prefix + 'badwordsreset')) {
-    let words = db.get(`badwords.${msg.guild.id}.words`)
-    if(words === null || words === undefined) return msg.channel.send(`**لا توجد كلمات لكي تحذفها**`)
-    db.delete(`badwords.${msg.guild.id}.words`)
-    msg.channel.send(`**تم حذف كل الكلمات بنجاح**`)
-  }
-})
+
 
 
 
