@@ -24,7 +24,8 @@ const prefix = "+";
 /////////////////////////
 ////////////////////////
 
-
+client.on('ready', () => {
+client.user.setStatus("dnd");
 
 client.on('message', message => {
 const myID = "444126346676011028";
