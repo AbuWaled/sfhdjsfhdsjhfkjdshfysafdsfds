@@ -52,17 +52,17 @@ client.on("message", message => {
         var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first(); 
         if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );if( message.mentions.members.first() ){
             message.mentions.members.first().removeRole( role1 );
-            return message.reply('**<a:done:603608169884680206>[ '+role1.name+' ] رتبة [ '+args[0]+' ] تم سحب من **');
+            return message.reply('**[ '+role1.name+' ] رتبة [ '+args[0]+' ] تم سحب من **');
         }
         if( args[0].toLowerCase() == "all" ){
             message.guild.members.forEach(m=>m.removeRole( role1 ))
-            return    message.reply('**<a:done:603608169884680206> [ '+role1.name+' ] تم ��حب من الكل رتبة**');
+            return    message.reply('** [ '+role1.name+' ] تم ��حب من الكل رتبة**');
         } else if( args[0].toLowerCase() == "bots" ){
             message.guild.members.filter(m=>m.user.bot).forEach(m=>m.removeRole(role1))
-            return    message.reply('**<a:done:603608169884680206> [ '+role1.name+' ] تم سحب من البوت رتبة**');
+            return    message.reply('** [ '+role1.name+' ] تم سحب من البوت رتبة**');
         } else if( args[0].toLowerCase() == "humans" ){
             message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.removeRole(role1))
-            return    message.reply('**<a:done:603608169884680206>[ '+role1.name+' ] تم سحب من البشريين رتبة**');
+            return    message.reply('**[ '+role1.name+' ] تم سحب من البشريين رتبة**');
         }     
     } else {
         if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد اعطائها الرتبة**' );
@@ -71,17 +71,17 @@ client.on("message", message => {
         var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first(); 
         if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );if( message.mentions.members.first() ){
             message.mentions.members.first().addRole( role1 );
-            return message.reply('**<a:done:603608169884680206>[ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء **');
+            return message.reply('**[ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء **');
         }
         if( args[0].toLowerCase() == "all" ){
             message.guild.members.forEach(m=>m.addRole( role1 ))
-            return    message.reply('**<a:done:603608169884680206> [ '+role1.name+' ] تم اعطاء الكل رتبة**');
+            return    message.reply('** [ '+role1.name+' ] تم اعطاء الكل رتبة**');
         } else if( args[0].toLowerCase() == "bots" ){
             message.guild.members.filter(m=>m.user.bot).forEach(m=>m.addRole(role1))
-            return    message.reply('**<a:done:603608169884680206> [ '+role1.name+' ] تم اعطاء البوتات رتبة**');
+            return    message.reply('** [ '+role1.name+' ] تم اعطاء البوتات رتبة**');
         } else if( args[0].toLowerCase() == "humans" ){
             message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.addRole(role1))
-            return    message.reply('**<a:done:603608169884680206> [ '+role1.name+' ] تم اعطاء البشريين رتبة**');
+            return    message.reply('** [ '+role1.name+' ] تم اعطاء البشريين رتبة**');
         } 
     }
       }
