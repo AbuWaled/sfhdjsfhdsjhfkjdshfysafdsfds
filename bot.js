@@ -1,12 +1,24 @@
+const http = require('http');
+const express = require('express');
+const app = express();
+app.get("/", (request, response) => {
+  response.sendStatus(200);
+});
+app.listen(process.env.PORT);
+setInterval(() => {
+  http.get(`http://vansbc5.glitch.me/`);
+}, 280000);
+
+
 const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
 const fs = require("fs");
 
-const prefix = "+";
+const prefix = "-";
 
-const adminprefix = "+"; 
+const adminprefix = "-"; 
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -14,6 +26,7 @@ client.on('ready', () => {
 
 
 client.on('ready', () => {
+client.user.setStatus("dnd");
   console.log(`Logged in as ${client.user.tag}!`);
   console.log('')
   console.log('')
@@ -39,41 +52,48 @@ client.on('ready', () => {
   console.log('')
 });
 
+const developers = ["263737433756139523","571907301766856729"]
 client.on('message', message => {
-  if (!message.content.startsWith(prefix)) return;
-  var args = message.content.split(' ').slice(1);
-  var argresult = args.join(' ');
-  if (message.author.id !== '444126346676011028') return;
+    var argresult = message.content.split(` `).slice(1).join(' ');  // Alpha Codes Ghost
+      if (!developers.includes(message.author.id)) return;
 
-if (message.content.startsWith(prefix + 'game')) {
-  client.user.setGame(argresult);
-    message.channel.sendMessage(`**:white_check_mark:  : ${argresult}**`)
-} else 
-
-if (message.content.startsWith(prefix + 'watch')) {
-client.user.setActivity(argresult, {type:'WATCHING'});
-    message.channel.sendMessage(`**:white_check_mark:  : ${argresult}**`)
-} else 
-if (message.content.startsWith(prefix + 'listen')) {
-client.user.setActivity(argresult, {type:'LISTENING'});
-    message.channel.sendMessage(`**:white_check_mark:  : ${argresult}**`)
-} else 
-
-if (message.content.startsWith(prefix + 'stream')) {
-  client.user.setGame(argresult, "https://www.twitch.tv/Justin-Ly0001");
-    message.channel.sendMessage(`**:white_check_mark:  : ${argresult}**`)
+  if (message.content.startsWith(adminprefix + 'setg')) {
+    client.user.setGame(argresult);
+      message.channel.send(`**✅   ${argresult}**`)
+  } else
+     if (message.content === (adminprefix + "leave")) {
+    message.guild.leave();
+  } else
+  if (message.content.startsWith(adminprefix + 'setw')) {  // Alpha Codes Ghost
+  client.user.setActivity(argresult, {type:'WATCHING'});
+      message.channel.send(`**✅   ${argresult}**`)
+  } else
+  if (message.content.startsWith(adminprefix + 'setl')) {
+  client.user.setActivity(argresult , {type:'LISTENING'});
+      message.channel.send(`**✅   ${argresult}**`)
+  } else
+  if (message.content.startsWith(adminprefix + 'sets')) {
+    client.user.setGame(argresult, "https://www.twitch.tv/dream");  // Alpha Codes Ghost
+      message.channel.send(`**✅**`)
+  }
+  if (message.content.startsWith(adminprefix + 'setname')) {
+  client.user.setUsername(argresult).then
+      message.channel.send(`Changing The Name To ..**${argresult}** `)
+} else
+if (message.content.startsWith(adminprefix + 'setava')) {
+  client.user.setAvatar(argresult);
+    message.channel.send(`Changing The Avatar To :**${argresult}** `);
 }
-
 });
 
 
- client.on('message', message => {	
+client.on('message', message => {	
               if(!message.channel.guild) return;	
-    if(message.content.startsWith('+bc')) {	
+    if(message.content.startsWith('-bc')) {	
     if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));	
   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );	
     let args = message.content.split(" ").join(" ").slice(2 + prefix.length);	
-    let copy = "Speed Bot";	
+    let copy = "Brodcast";	
     let request = `Requested By ${message.author.username}`;	
     if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {	
     msg.react('✅')	
@@ -107,7 +127,6 @@ if (message.content.startsWith(prefix + 'stream')) {
     })	
     }	
     })
-
 
 //bc online
 
@@ -164,4 +183,11 @@ client.on('ready',  () => {
 
 
 
+
+
+
+
+
+
 client.login(process.env.BOT);
+client.login(process.env.BOT1);
